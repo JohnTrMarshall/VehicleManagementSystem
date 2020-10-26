@@ -1,0 +1,12 @@
+C:\Users\John\source\repos\VehicleManagementSystem\bin\Debug\VehicleManagementSystemDatabase.mdf
+C:\Users\John\source\repos\VehicleManagementSystem\bin\Debug\VehicleManagementSystemDatabase_log.ldf
+C:\Users\John\source\repos\VehicleManagementSystem\bin\Debug\VehicleManagementSystem.exe.config
+C:\Users\John\source\repos\VehicleManagementSystem\bin\Debug\VehicleManagementSystem.exe
+C:\Users\John\source\repos\VehicleManagementSystem\bin\Debug\VehicleManagementSystem.pdb
+C:\Users\John\source\repos\VehicleManagementSystem\obj\Debug\VehicleManagementSystem.csprojAssemblyReference.cache
+C:\Users\John\source\repos\VehicleManagementSystem\obj\Debug\VehicleManagementSystem.Properties.Resources.resources
+C:\Users\John\source\repos\VehicleManagementSystem\obj\Debug\VehicleManagementSystem.csproj.GenerateResource.cache
+C:\Users\John\source\repos\VehicleManagementSystem\obj\Debug\VehicleManagementSystem.csproj.CoreCompileInputs.cache
+C:\Users\John\source\repos\VehicleManagementSystem\obj\Debug\VehicleManagementSystem.exe
+C:\Users\John\source\repos\VehicleManagementSystem\obj\Debug\VehicleManagementSystem.pdb
+C:\Users\John\source\repos\VehicleManagementSystem\obj\Debug\VehicleManagementSystem.main.resources
