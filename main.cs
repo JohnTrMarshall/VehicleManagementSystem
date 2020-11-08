@@ -15,8 +15,8 @@ namespace VehicleManagementSystem
     public partial class main : Form
     {
      
-        private readonly String connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\John\\source\\repos\\VehicleManagementSystem\\VehicleManagementSystemDatabase.mdf;Integrated Security=True;Connect Timeout=30";
-
+        private readonly String connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\ahmed\\source\\repos\\VehicleManagementSystem\\VehicleManagementSystemDatabase.mdf;Integrated Security=True;Connect Timeout=30";
+        Login login = new Login();
         public main()
         {
             InitializeComponent();
@@ -124,6 +124,11 @@ namespace VehicleManagementSystem
             query.Fill(table);
 
             vehicleList.DataSource = table;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            login.Show();
         }
     }
 }
