@@ -30,9 +30,10 @@
         {
             this.vehicleList = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.makeComboBox = new System.Windows.Forms.ComboBox();
+            this.yearComboBox = new System.Windows.Forms.ComboBox();
+            this.modelComboBox = new System.Windows.Forms.ComboBox();
+            this.searchButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,7 +45,6 @@
             this.vehicleList.Name = "vehicleList";
             this.vehicleList.Size = new System.Drawing.Size(776, 367);
             this.vehicleList.TabIndex = 1;
-            this.vehicleList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // button1
             // 
@@ -55,42 +55,52 @@
             this.button1.Text = "Login";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // makeComboBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 14);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 11;
-            this.comboBox1.Text = "Make";
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.makeComboBox.FormattingEnabled = true;
+            this.makeComboBox.Location = new System.Drawing.Point(12, 14);
+            this.makeComboBox.Name = "makeComboBox";
+            this.makeComboBox.Size = new System.Drawing.Size(121, 21);
+            this.makeComboBox.TabIndex = 11;
+            this.makeComboBox.Text = "Make";
             // 
-            // comboBox2
+            // yearComboBox
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(266, 14);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 12;
-            this.comboBox2.Text = "Year";
+            this.yearComboBox.FormattingEnabled = true;
+            this.yearComboBox.Location = new System.Drawing.Point(266, 14);
+            this.yearComboBox.Name = "yearComboBox";
+            this.yearComboBox.Size = new System.Drawing.Size(121, 21);
+            this.yearComboBox.TabIndex = 12;
+            this.yearComboBox.Text = "Year";
             // 
-            // comboBox3
+            // modelComboBox
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(139, 14);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 21);
-            this.comboBox3.TabIndex = 13;
-            this.comboBox3.Text = "Model";
+            this.modelComboBox.FormattingEnabled = true;
+            this.modelComboBox.Location = new System.Drawing.Point(139, 14);
+            this.modelComboBox.Name = "modelComboBox";
+            this.modelComboBox.Size = new System.Drawing.Size(121, 21);
+            this.modelComboBox.TabIndex = 13;
+            this.modelComboBox.Text = "Model";
+            // 
+            // searchButton
+            // 
+            this.searchButton.Location = new System.Drawing.Point(394, 11);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(75, 23);
+            this.searchButton.TabIndex = 14;
+            this.searchButton.Text = "Search";
+            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.searchButton);
+            this.Controls.Add(this.modelComboBox);
+            this.Controls.Add(this.yearComboBox);
+            this.Controls.Add(this.makeComboBox);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.vehicleList);
             this.Name = "main";
@@ -105,9 +115,10 @@
 
         private System.Windows.Forms.DataGridView vehicleList;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox makeComboBox;
+        private System.Windows.Forms.ComboBox yearComboBox;
+        private System.Windows.Forms.ComboBox modelComboBox;
+        private System.Windows.Forms.Button searchButton;
     }
 }
 
