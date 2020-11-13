@@ -64,6 +64,7 @@
             this.makeComboBox.Size = new System.Drawing.Size(121, 21);
             this.makeComboBox.TabIndex = 11;
             this.makeComboBox.Text = "Make";
+            this.makeComboBox.SelectedIndexChanged += new System.EventHandler(this.makeComboBox_SelectedIndexChanged);
             // 
             // yearComboBox
             // 
