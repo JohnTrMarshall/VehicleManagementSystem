@@ -29,10 +29,11 @@ C:\Users\John\Development\VehicleManagementSystem\bin\Debug\VehicleManagementSys
 C:\Users\John\Development\VehicleManagementSystem\bin\Debug\VehicleManagementSystem.exe
 C:\Users\John\Development\VehicleManagementSystem\bin\Debug\VehicleManagementSystem.pdb
 C:\Users\John\Development\VehicleManagementSystem\obj\Debug\VehicleManagementSystem.csprojAssemblyReference.cache
-C:\Users\John\Development\VehicleManagementSystem\obj\Debug\VehicleManagementSystem.Login.resources
-C:\Users\John\Development\VehicleManagementSystem\obj\Debug\VehicleManagementSystem.main.resources
 C:\Users\John\Development\VehicleManagementSystem\obj\Debug\VehicleManagementSystem.Properties.Resources.resources
 C:\Users\John\Development\VehicleManagementSystem\obj\Debug\VehicleManagementSystem.csproj.GenerateResource.cache
 C:\Users\John\Development\VehicleManagementSystem\obj\Debug\VehicleManagementSystem.csproj.CoreCompileInputs.cache
 C:\Users\John\Development\VehicleManagementSystem\obj\Debug\VehicleManagementSystem.exe
 C:\Users\John\Development\VehicleManagementSystem\obj\Debug\VehicleManagementSystem.pdb
+C:\Users\John\Development\VehicleManagementSystem\obj\Debug\VehicleManagementSystem.Admin_Form.resources
+C:\Users\John\Development\VehicleManagementSystem\obj\Debug\VehicleManagementSystem.Login_Form.resources
+C:\Users\John\Development\VehicleManagementSystem\obj\Debug\VehicleManagementSystem.Main_Form.resources
