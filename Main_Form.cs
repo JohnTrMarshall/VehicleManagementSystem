@@ -48,13 +48,6 @@ namespace VehicleManagementSystem
             fillCombos(connection);
 
         }
-
-        void fillCombos(SqlConnection connection)
-        {
-            fillMakeCombo(connection);
-            fillModelCombo(connection);
-            fillYearCombo(connection);
-        }
         void fillVehicleList(SqlConnection connection)
         {
             SqlDataAdapter query = new SqlDataAdapter("SELECT vin, make, model, year, color, price, mileage FROM Vehicle WHERE owner='Dearborn Ford'", connection);
@@ -73,15 +66,19 @@ namespace VehicleManagementSystem
             vehicleList.Columns[5].HeaderText = "Price";
             vehicleList.Columns[6].HeaderText = "Mileage";
         }
+        void fillCombos(SqlConnection connection)
+        {
+            fillMakeCombo(connection);
+            fillModelCombo(connection);
+            fillYearCombo(connection);
+        }
         void fillMakeCombo(SqlConnection connection)
         {
 
             makeComboBox.Items.Clear();
 
-            SqlCommand query = new SqlCommand("SELECT DISTINCT make FROM Vehicle WHERE owner='Dearborn Ford' AND make LIKE '" +
-                                                    make + "' AND model LIKE '" +
-                                                    model + "' AND year LIKE '" +
-                                                    year + "'", connection);
+            SqlCommand query = new SqlCommand("SELECT DISTINCT make FROM Vehicle WHERE owner='Dearborn Ford'", connection);
+
 
             SqlDataReader reader = query.ExecuteReader();
 
@@ -93,6 +90,8 @@ namespace VehicleManagementSystem
             }
 
             reader.Close();
+
+            makeComboBox.SelectedIndex = 0;
         }
         void fillModelCombo(SqlConnection connection)
         {
@@ -111,6 +110,8 @@ namespace VehicleManagementSystem
             }
 
             reader.Close();
+
+            modelComboBox.SelectedIndex = 0;
         }
         void fillYearCombo(SqlConnection connection)
         {
@@ -129,22 +130,24 @@ namespace VehicleManagementSystem
             }
 
             reader.Close();
+
+            yearComboBox.SelectedIndex = 0;
         }
         void clearFilter()
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
 
-                makeComboBox.SelectedIndex = -1;
-                modelComboBox.SelectedIndex = -1;
-                yearComboBox.SelectedIndex = -1;
+                makeComboBox.SelectedIndex = 0;
+                modelComboBox.SelectedIndex = 0;
+                yearComboBox.SelectedIndex = 0;
 
                 make = model = year = "%";
 
                 try
                 {
                     connection.Open();
-                    fillCombos(connection);
+                    fillData(connection);
                 }
                 catch (Exception)
                 {
@@ -152,41 +155,99 @@ namespace VehicleManagementSystem
                 }
             }
         }
-        private void clearFilter_Button_Click(object sender, EventArgs e)
+        
+        public void filter()
         {
 
+            if(makeComboBox.SelectedIndex != 0 || modelComboBox.SelectedIndex != 0 || yearComboBox.SelectedIndex != 0)
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+
+                    make = makeComboBox?.SelectedIndex == 0 ? "%" : makeComboBox.SelectedItem.ToString();
+                    model = modelComboBox?.SelectedIndex == 0 ? "%" : modelComboBox.SelectedItem.ToString();
+                    year = yearComboBox?.SelectedIndex == 0 ? "%" : yearComboBox.SelectedItem.ToString();
+
+                    SqlDataAdapter query = new SqlDataAdapter("SELECT vin, make, model, year, color, price, mileage" +
+                                                            " FROM Vehicle " +
+                                                            "WHERE owner='Dearborn Ford' AND make LIKE '" +
+                                                            make + "' AND model LIKE '" +
+                                                            model + "' AND year LIKE '" +
+                                                            year + "'", connection);
+
+                    DataTable table = new DataTable();
+
+                    query.Fill(table);
+
+                    vehicleList.DataSource = table;
+
+                    try
+                    {
+                        connection.Open();
+                        fillCombos(connection);
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Error, connection to database lost");
+                    }
+                }
+
+                filter_Button.Enabled = false;
+            }
         }
 
-        private void searchButton_Click(object sender, EventArgs e)
+        private void clearFilter_Button_Click(object sender, EventArgs e)
         {
-            SqlConnection connection = new SqlConnection(connectionString);
-
-            make = makeComboBox?.SelectedIndex == -1 ? "%" : makeComboBox.SelectedItem.ToString();
-            model = modelComboBox?.SelectedIndex == -1 ? "%" : modelComboBox.SelectedItem.ToString();
-            year = yearComboBox?.SelectedIndex == -1 ? "%" : yearComboBox.SelectedItem.ToString();
-
-            SqlDataAdapter query = new SqlDataAdapter("SELECT vin, make, model, year, color, price, mileage" +
-                                                    " FROM Vehicle " +
-                                                    "WHERE owner='Dearborn Ford' AND make LIKE '" +
-                                                    make + "' AND model LIKE '" +
-                                                    model + "' AND year LIKE '" +
-                                                    year + "'", connection);
-
-            DataTable table = new DataTable();
-
-            query.Fill(table);
-
-            vehicleList.DataSource = table;
-
-            try
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                connection.Open();
-                fillCombos(connection);
+
+                makeComboBox.SelectedIndex = 0;
+                modelComboBox.SelectedIndex = 0;
+                yearComboBox.SelectedIndex = 0;
+
+                make = model = year = "%";
+
+                try
+                {
+                    connection.Open();
+                    fillData(connection);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Error, connection to database lost");
+                }
             }
-            catch (Exception)
+
+            filter_Button.Enabled = true;
+        }
+
+        private void makeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(makeComboBox.SelectedIndex != 0)
             {
-                MessageBox.Show("Error, connection to database lost");
+                filter_Button.Enabled = true;
             }
+        }
+
+        private void modelComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (modelComboBox.SelectedIndex != 0)
+            {
+                filter_Button.Enabled = true;
+            }
+        }
+
+        private void yearComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (yearComboBox.SelectedIndex != 0)
+            {
+                filter_Button.Enabled = true;
+            }
+        }
+
+        private void filterButton_Click(object sender, EventArgs e)
+        {
+            filter();
         }
 
         private void button1_Click(object sender, EventArgs e)
