@@ -42,9 +42,10 @@ namespace VehicleManagementSystem
             SqlConnection connection = new SqlConnection(connectionString);
             SqlDataAdapter query = new SqlDataAdapter("SELECT COUNT(*) FROM [User] WHERE userName='" + textBox1.Text + "' AND password='" + textBox2.Text + "'", connection);
            
-            DataTable dt = new DataTable(); //this is creating a virtual table  
+            DataTable dt = new DataTable(); //this is creating a virtual table 
+           
             query.Fill(dt);
-            if (dt.Rows[0][0].ToString() == "1")
+            if (dt.Rows.Count<0)
             {
                 /* I have made a new page called home page. If the user is successfully authenticated then the form will be moved to the next form */
                 this.Hide();
