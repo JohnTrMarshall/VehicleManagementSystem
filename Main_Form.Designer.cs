@@ -50,12 +50,13 @@
             this.vehicleList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.vehicleList.Location = new System.Drawing.Point(12, 71);
             this.vehicleList.Name = "vehicleList";
-            this.vehicleList.Size = new System.Drawing.Size(776, 367);
+            this.vehicleList.Size = new System.Drawing.Size(727, 367);
             this.vehicleList.TabIndex = 1;
             // 
             // login_Button
             // 
-            this.login_Button.Location = new System.Drawing.Point(713, 12);
+            this.login_Button.AutoSize = true;
+            this.login_Button.Location = new System.Drawing.Point(664, 14);
             this.login_Button.Name = "login_Button";
             this.login_Button.Size = new System.Drawing.Size(75, 23);
             this.login_Button.TabIndex = 2;
@@ -131,7 +132,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(806, 450);
+            this.ClientSize = new System.Drawing.Size(751, 450);
             this.Controls.Add(this.vehicleList_Label);
             this.Controls.Add(this.clearFilter_Button);
             this.Controls.Add(this.filter_Button);

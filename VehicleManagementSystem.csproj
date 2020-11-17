@@ -70,7 +70,20 @@
       <DependentUpon>Admin_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Config.cs" />
+    <Compile Include="Customer.cs" />
+    <Compile Include="customerInfo_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="customerInfo_Form.Designer.cs">
+      <DependentUpon>customerInfo_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Database.cs" />
+    <Compile Include="Employee_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee_Form.Designer.cs">
+      <DependentUpon>Employee_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +107,12 @@
     </Compile>
     <EmbeddedResource Include="Admin_Form.resx">
       <DependentUpon>Admin_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="customerInfo_Form.resx">
+      <DependentUpon>customerInfo_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee_Form.resx">
+      <DependentUpon>Employee_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login_Form.resx">
       <DependentUpon>Login_Form.cs</DependentUpon>
