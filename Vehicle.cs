@@ -11,8 +11,6 @@ namespace VehicleManagementSystem
 
     class Vehicle
     {
-        private readonly String connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\VehicleManagementSystemDatabase.mdf;Integrated Security=True;Connect Timeout=30";
-
         private String vin { get; set; }
         private String make { get; set; }
         private String model { get; set; }
@@ -33,22 +31,32 @@ namespace VehicleManagementSystem
         }
         public void addVehicle(Vehicle v)
         {
-            SqlConnection connection = new SqlConnection(connectionString);
-            Vehicle nv = new Vehicle();
-           
-            try
-            {
-                connection.Open();
 
-                SqlCommand query = new System.Data.SqlClient.SqlCommand($"INSERT INTO Vehicle " +
-                $" VALUES ({v.vin}, {v.make}< {v.model}, {v.year}< {v.color}< {v.owner}, {v.holder}, {v.returnDate}, {v.price}, {v.mileage})");
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Error, failed to connect to database");
-            }
+            Database db = new Database();
 
-            
+            using (SqlConnection connection = new SqlConnection(db.GetConnectionString()))
+            {
+                Vehicle nv = new Vehicle();
+
+                try
+                {
+                    connection.Open();
+
+                    String query_str = ($"INSERT INTO Vehicle " +
+                    $" VALUES ({v.vin}, {v.make}< {v.model}, {v.year}< {v.color}< {v.owner}, {v.holder}, {v.returnDate}, {v.price}, {v.mileage})");
+
+                    
+                    SqlCommand query = new System.Data.SqlClient.SqlCommand(query_str, connection);
+
+                    query.ExecuteNonQuery();
+
+                    MessageBox.Show("Vehicle has successfully been added");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Error, failed to connect to database");
+                }
+            }     // end sql connection       
         }
 
         public void removeVehicle()

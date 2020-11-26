@@ -19,7 +19,7 @@ namespace VehicleManagementSystem
 
         private void serviceVehicle_Button_Click(object sender, EventArgs e)
         {
-            Application.Run(new customerInfo_Form());
+            MessageBox.Show("Nothing is here yet");
         }
     }
 }

@@ -11,8 +11,6 @@ namespace VehicleManagementSystem
     class Customer
     {
                                                     
-        private readonly String connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\John\\Development\\VehicleManagementSystemDatabase.mdf;Integrated Security=True;Connect Timeout=30";
-
         private string name { get; set; }
         private string street { get; set; }
         private string city { get; set; }
@@ -37,25 +35,20 @@ namespace VehicleManagementSystem
         }
         public void AddCustomer()
         {
-           using (SqlConnection connection = new SqlConnection(connectionString)) {
+            Database db = new Database();
 
-
-                connection.Open();
-
-                String query_Str = $"INSERT INTO Customer " +
-                    $"VALUES ('{this.name}', '{this.street}', '{this.city}', '{this.state}', '{this.zip}', '{this.phoneNumber}', '{this.email}' )";
-
-                MessageBox.Show(query_Str);
-
-                SqlCommand query = new System.Data.SqlClient.SqlCommand(query_Str, connection);
-
-                int rowsChanged = query.ExecuteNonQuery();
-
-                MessageBox.Show(rowsChanged + " Customer has successfully been added");
+           using (SqlConnection connection = new SqlConnection(db.GetConnectionString())) {
 
                 try
                 {
-                    
+                    String query_str = $"INSERT INTO Customer " +
+                       $"VALUES ('{this.name}', '{this.street}', '{this.city}', '{this.state}', '{this.zip}', '{this.phoneNumber}', '{this.email}' )";
+
+                    SqlCommand query = new System.Data.SqlClient.SqlCommand(query_str, connection);
+
+                    query.ExecuteNonQuery();
+
+                    MessageBox.Show("Customer has successfully been added");
                 }
                 catch (Exception)
                 {

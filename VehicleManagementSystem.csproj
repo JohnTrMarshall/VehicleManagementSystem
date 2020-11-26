@@ -78,6 +78,7 @@
       <DependentUpon>customerInfo_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Database.cs" />
+    <Compile Include="Employee.cs" />
     <Compile Include="Employee_Form.cs">
       <SubType>Form</SubType>
     </Compile>

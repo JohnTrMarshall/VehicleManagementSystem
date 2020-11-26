@@ -13,13 +13,15 @@ namespace VehicleManagementSystem
 {
     public partial class Login_Form : Form
     {
-        private readonly String connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\VehicleManagementSystemDatabase.mdf;Integrated Security=True;Connect Timeout=30";
-
+        public Employee employee = new Employee();
         public Login_Form()
         {
             InitializeComponent();
         }
-
+        public Login_Form(Main_Form mf)
+        {
+           
+        }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             
@@ -34,23 +36,42 @@ namespace VehicleManagementSystem
         {
 
         }
+        public Employee GetLogin()
+        {
+            return employee;
+        }
+        public void SetLogin(Employee e)
+        {
 
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             string username = textBox1.Text;
             string pass = textBox2.Text;
 
-            SqlConnection connection = new SqlConnection(connectionString);
-            SqlDataAdapter query = new SqlDataAdapter("SELECT COUNT(*) FROM [Employee] WHERE userName='" + textBox1.Text + "' AND password='" + textBox2.Text + "'", connection);
+            Database db = new Database();
+
+            SqlConnection connection = new SqlConnection(db.GetConnectionString());
+            SqlDataAdapter query = new SqlDataAdapter("SELECT * FROM [Employee] WHERE userName='" + textBox1.Text + "' AND password='" + textBox2.Text + "'", connection);
            
             DataTable dt = new DataTable(); //this is creating a virtual table  
             query.Fill(dt);
             if (dt.Rows[0][0].ToString() == "1")
             {
                 /* I have made a new page called home page. If the user is successfully authenticated then the form will be moved to the next form */
+                textBox1.Clear();
+                textBox2.Clear();
                 this.Hide();
                 // this is where the new authorized form will be enabled 
-                MessageBox.Show("login success");
+
+                // create employee object
+               employee.name =  dt.Rows[0]["name"].ToString();
+               employee.employeeID = (int)dt.Rows[0]["employeeID"];
+               employee.userName = username;
+
+                // pass employee to main form
+                Main_Form main = (Main_Form)Application.OpenForms["Main_Form"];
+                if (main != null) main.loginEmployee(employee);
             }
             else
                 MessageBox.Show("Invalid username or password");
