@@ -16,7 +16,7 @@ namespace VehicleManagementSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new customerInfo_Form());
+            Application.Run(new Main_Form());
         }
     }
 }

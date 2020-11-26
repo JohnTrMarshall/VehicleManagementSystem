@@ -15,9 +15,13 @@ namespace VehicleManagementSystem
 {
     public partial class Main_Form : Form
     {
+
+        Employee employee = new Employee();
+
         private String make = "%", model = "%", year = "%";
 
-        private readonly String connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\VehicleManagementSystemDatabase.mdf;Integrated Security=True;Connect Timeout=30";
+        Database db = new Database();
+
         Login_Form login = new Login_Form();
         public Main_Form()
         {
@@ -26,9 +30,14 @@ namespace VehicleManagementSystem
 
         private void main_Load(object sender, EventArgs e)
         {
-            
+            purchaseVehicle_button.Hide();
+            sellVehicle_button.Hide();
+            leaseVehicle_button.Hide();
+            loanVehicle_button.Hide();
+            rentVehicle_button.Hide();
+            serviceVehicle_button.Hide();
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(db.GetConnectionString()))
             {
                 try
                 {
@@ -41,6 +50,10 @@ namespace VehicleManagementSystem
                 }
             }
 
+        }
+        public void test(Object sender, EventArgs e)
+        {
+            Employee test = (sender as Login_Form).GetLogin();
         }
         void fillData(SqlConnection connection)
         {
@@ -135,7 +148,7 @@ namespace VehicleManagementSystem
         }
         void clearFilter()
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(db.GetConnectionString()))
             {
 
                 makeComboBox.SelectedIndex = 0;
@@ -161,7 +174,7 @@ namespace VehicleManagementSystem
 
             if(makeComboBox.SelectedIndex != 0 || modelComboBox.SelectedIndex != 0 || yearComboBox.SelectedIndex != 0)
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = new SqlConnection(db.GetConnectionString()))
                 {
 
                     make = makeComboBox?.SelectedIndex == 0 ? "%" : makeComboBox.SelectedItem.ToString();
@@ -198,7 +211,7 @@ namespace VehicleManagementSystem
 
         private void clearFilter_Button_Click(object sender, EventArgs e)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(db.GetConnectionString()))
             {
 
                 makeComboBox.SelectedIndex = 0;
@@ -245,14 +258,71 @@ namespace VehicleManagementSystem
             }
         }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void serviceVehicle_Button_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void filterButton_Click(object sender, EventArgs e)
         {
             filter();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void login_button_Click(object sender, EventArgs e)
         {
-            login.Show();
+            
+            if (employee.employeeID == 0)
+            {
+                login.Show();
+            }
+            else
+            {
+                logoutEmployee();
+            }
+        }
+        public void loginEmployee(Employee employee)
+        {
+            // set local employee object
+            this.employee = employee;
+
+            //update labels
+            userName_label.Text = this.employee.userName;
+            login_Button.Text = "Logout";
+
+            // show employee buttons
+            purchaseVehicle_button.Show();
+            sellVehicle_button.Show();
+            leaseVehicle_button.Show();
+            loanVehicle_button.Show();
+            rentVehicle_button.Show();
+            serviceVehicle_button.Show();
+        }
+        public void logoutEmployee()
+        {
+            // reset local employee object
+            employee = new Employee();
+
+            // update labels
+            userName_label.Text = "Guest";
+            login_Button.Text = "Login";
+
+            // hide employee buttons
+            purchaseVehicle_button.Hide();
+            sellVehicle_button.Hide();
+            leaseVehicle_button.Hide();
+            loanVehicle_button.Hide();
+            rentVehicle_button.Hide();
+            serviceVehicle_button.Hide();
         }
     }
 }
