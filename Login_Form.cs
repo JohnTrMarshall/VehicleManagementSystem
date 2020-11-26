@@ -41,7 +41,7 @@ namespace VehicleManagementSystem
             string pass = textBox2.Text;
 
             SqlConnection connection = new SqlConnection(connectionString);
-            SqlDataAdapter query = new SqlDataAdapter("SELECT COUNT(*) FROM [User] WHERE userName='" + textBox1.Text + "' AND password='" + textBox2.Text + "'", connection);
+            SqlDataAdapter query = new SqlDataAdapter("SELECT COUNT(*) FROM [Employee] WHERE userName='" + textBox1.Text + "' AND password='" + textBox2.Text + "'", connection);
            
             DataTable dt = new DataTable(); //this is creating a virtual table  
             query.Fill(dt);
