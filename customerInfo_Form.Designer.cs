@@ -46,7 +46,7 @@
             // existingCustomer_Label
             // 
             this.existingCustomer_Label.AutoSize = true;
-            this.existingCustomer_Label.Location = new System.Drawing.Point(545, 84);
+            this.existingCustomer_Label.Location = new System.Drawing.Point(449, 84);
             this.existingCustomer_Label.Name = "existingCustomer_Label";
             this.existingCustomer_Label.Size = new System.Drawing.Size(90, 13);
             this.existingCustomer_Label.TabIndex = 8;
@@ -55,9 +55,9 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(548, 109);
+            this.dataGridView1.Location = new System.Drawing.Point(452, 100);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(336, 205);
             this.dataGridView1.TabIndex = 9;
             // 
             // clearCustomer_Button
@@ -65,7 +65,7 @@
             this.clearCustomer_Button.Location = new System.Drawing.Point(143, 282);
             this.clearCustomer_Button.Name = "clearCustomer_Button";
             this.clearCustomer_Button.Size = new System.Drawing.Size(81, 23);
-            this.clearCustomer_Button.TabIndex = 32;
+            this.clearCustomer_Button.TabIndex = 9;
             this.clearCustomer_Button.Text = "Clear";
             this.clearCustomer_Button.UseVisualStyleBackColor = true;
             this.clearCustomer_Button.Click += new System.EventHandler(this.clearCustomer_Button_Click);
@@ -75,9 +75,10 @@
             this.addCustomer_Button.Location = new System.Drawing.Point(56, 282);
             this.addCustomer_Button.Name = "addCustomer_Button";
             this.addCustomer_Button.Size = new System.Drawing.Size(81, 23);
-            this.addCustomer_Button.TabIndex = 31;
+            this.addCustomer_Button.TabIndex = 8;
             this.addCustomer_Button.Text = "Add Customer";
             this.addCustomer_Button.UseVisualStyleBackColor = true;
+            this.addCustomer_Button.Click += new System.EventHandler(this.addCustomer_Button_Click);
             // 
             // newCustomer_Label
             // 
@@ -90,27 +91,36 @@
             // 
             // phoneNumber_Textbox
             // 
+            this.phoneNumber_Textbox.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.phoneNumber_Textbox.Location = new System.Drawing.Point(56, 230);
             this.phoneNumber_Textbox.Name = "phoneNumber_Textbox";
             this.phoneNumber_Textbox.Size = new System.Drawing.Size(168, 20);
-            this.phoneNumber_Textbox.TabIndex = 29;
+            this.phoneNumber_Textbox.TabIndex = 6;
             this.phoneNumber_Textbox.Text = "Phone Number";
+            this.phoneNumber_Textbox.Click += new System.EventHandler(this.phoneNumber_Textbox_Click);
+            this.phoneNumber_Textbox.LostFocus += new System.EventHandler(this.phoneNumber_Textbox_LostFocus);
             // 
             // zip_Textbox
             // 
+            this.zip_Textbox.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.zip_Textbox.Location = new System.Drawing.Point(56, 204);
             this.zip_Textbox.Name = "zip_Textbox";
             this.zip_Textbox.Size = new System.Drawing.Size(168, 20);
-            this.zip_Textbox.TabIndex = 28;
+            this.zip_Textbox.TabIndex = 5;
             this.zip_Textbox.Text = "Zip";
+            this.zip_Textbox.Click += new System.EventHandler(this.zip_Textbox_Click);
+            this.zip_Textbox.LostFocus += new System.EventHandler(this.zip_Textbox_LostFocus);
             // 
             // state_Textbox
             // 
+            this.state_Textbox.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.state_Textbox.Location = new System.Drawing.Point(56, 178);
             this.state_Textbox.Name = "state_Textbox";
             this.state_Textbox.Size = new System.Drawing.Size(168, 20);
-            this.state_Textbox.TabIndex = 27;
+            this.state_Textbox.TabIndex = 4;
             this.state_Textbox.Text = "State";
+            this.state_Textbox.Click += new System.EventHandler(this.state_Textbox_Click);
+            this.state_Textbox.LostFocus += new System.EventHandler(this.state_Textbox_LostFocus);
             // 
             // street_Textbox
             // 
@@ -118,24 +128,32 @@
             this.street_Textbox.Location = new System.Drawing.Point(56, 126);
             this.street_Textbox.Name = "street_Textbox";
             this.street_Textbox.Size = new System.Drawing.Size(168, 20);
-            this.street_Textbox.TabIndex = 26;
+            this.street_Textbox.TabIndex = 2;
             this.street_Textbox.Text = "Street";
+            this.street_Textbox.Click += new System.EventHandler(this.street_Textbox_Click);
+            this.street_Textbox.LostFocus += new System.EventHandler(this.street_Textbox_LostFocus);
             // 
             // email_Textbox
             // 
+            this.email_Textbox.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.email_Textbox.Location = new System.Drawing.Point(56, 256);
             this.email_Textbox.Name = "email_Textbox";
             this.email_Textbox.Size = new System.Drawing.Size(168, 20);
-            this.email_Textbox.TabIndex = 25;
+            this.email_Textbox.TabIndex = 7;
             this.email_Textbox.Text = "Email";
+            this.email_Textbox.Click += new System.EventHandler(this.email_Textbox_Click);
+            this.email_Textbox.LostFocus += new System.EventHandler(this.email_Textbox_LostFocus);
             // 
             // city_Textbox
             // 
+            this.city_Textbox.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.city_Textbox.Location = new System.Drawing.Point(56, 152);
             this.city_Textbox.Name = "city_Textbox";
             this.city_Textbox.Size = new System.Drawing.Size(168, 20);
-            this.city_Textbox.TabIndex = 24;
+            this.city_Textbox.TabIndex = 3;
             this.city_Textbox.Text = "City";
+            this.city_Textbox.Click += new System.EventHandler(this.city_Textbox_Click);
+            this.city_Textbox.LostFocus += new System.EventHandler(this.city_Textbox_LostFocus);
             // 
             // name_Textbox
             // 
@@ -143,10 +161,10 @@
             this.name_Textbox.Location = new System.Drawing.Point(56, 100);
             this.name_Textbox.Name = "name_Textbox";
             this.name_Textbox.Size = new System.Drawing.Size(168, 20);
-            this.name_Textbox.TabIndex = 23;
+            this.name_Textbox.TabIndex = 1;
             this.name_Textbox.Text = "Name";
             this.name_Textbox.Click += new System.EventHandler(this.name_Textbox_Click);
-            this.name_Textbox.TextChanged += new System.EventHandler(this.name_Textbox_TextChanged);
+            this.name_Textbox.LostFocus += new System.EventHandler(this.name_Textbox_LostFocus);
             // 
             // customerInfo_Form
             // 

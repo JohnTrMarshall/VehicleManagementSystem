@@ -10,8 +10,8 @@ namespace VehicleManagementSystem
 {
     class Customer
     {
-
-        private readonly String connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\VehicleManagementSystemDatabase.mdf;Integrated Security=True;Connect Timeout=30";
+                                                    
+        private readonly String connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\John\\Development\\VehicleManagementSystemDatabase.mdf;Integrated Security=True;Connect Timeout=30";
 
         private string name { get; set; }
         private string street { get; set; }
@@ -21,21 +21,41 @@ namespace VehicleManagementSystem
         private string phoneNumber { get; set;  }
         private string email { get; set; }
 
-        Customer()
+        public Customer()
         {
             name = street = city = state = zip = phoneNumber = email = "";
         }
-
-        void addCustomer(Customer C)
+        public Customer(string name, string street, string city, string state, string zip, string phoneNumber, string email)
+        {
+            this.name = name;
+            this.street = street;
+            this.city = city;
+            this.state = state;
+            this.zip = zip;
+            this.phoneNumber = phoneNumber;
+            this.email = email;
+        }
+        public void AddCustomer()
         {
            using (SqlConnection connection = new SqlConnection(connectionString)) {
 
+
+                connection.Open();
+
+                String query_Str = $"INSERT INTO Customer " +
+                    $"VALUES ('{this.name}', '{this.street}', '{this.city}', '{this.state}', '{this.zip}', '{this.phoneNumber}', '{this.email}' )";
+
+                MessageBox.Show(query_Str);
+
+                SqlCommand query = new System.Data.SqlClient.SqlCommand(query_Str, connection);
+
+                int rowsChanged = query.ExecuteNonQuery();
+
+                MessageBox.Show(rowsChanged + " Customer has successfully been added");
+
                 try
                 {
-                    connection.Open();
-
-                    SqlCommand query = new System.Data.SqlClient.SqlCommand($"INSERT INTO Customer " +
-                    $" VALUES ({C.name}, {C.street}< {C.city}, {C.state}< {C.zip}< {C.phoneNumber}, {C.email})");
+                    
                 }
                 catch (Exception)
                 {

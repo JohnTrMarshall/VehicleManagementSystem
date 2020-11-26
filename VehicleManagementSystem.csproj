@@ -98,7 +98,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Test\VehicleTest.cs" />
     <Compile Include="Vehicle.cs" />
     <Compile Include="VehicleManagementSystemDatabaseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -155,10 +154,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="VehicleManagementSystemDatabase.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="VehicleManagementSystemDatabase_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>VehicleManagementSystemDatabase.mdf</DependentUpon>
     </Content>
   </ItemGroup>
@@ -173,6 +172,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Test\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
