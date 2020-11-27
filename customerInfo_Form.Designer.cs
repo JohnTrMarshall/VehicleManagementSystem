@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.existingCustomer_Label = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.clearCustomer_Button = new System.Windows.Forms.Button();
             this.addCustomer_Button = new System.Windows.Forms.Button();
             this.newCustomer_Label = new System.Windows.Forms.Label();
@@ -40,25 +38,8 @@
             this.email_Textbox = new System.Windows.Forms.TextBox();
             this.city_Textbox = new System.Windows.Forms.TextBox();
             this.name_Textbox = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // existingCustomer_Label
-            // 
-            this.existingCustomer_Label.AutoSize = true;
-            this.existingCustomer_Label.Location = new System.Drawing.Point(449, 84);
-            this.existingCustomer_Label.Name = "existingCustomer_Label";
-            this.existingCustomer_Label.Size = new System.Drawing.Size(90, 13);
-            this.existingCustomer_Label.TabIndex = 8;
-            this.existingCustomer_Label.Text = "Existing Customer";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(452, 100);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(336, 205);
-            this.dataGridView1.TabIndex = 9;
             // 
             // clearCustomer_Button
             // 
@@ -166,11 +147,21 @@
             this.name_Textbox.Click += new System.EventHandler(this.name_Textbox_Click);
             this.name_Textbox.LostFocus += new System.EventHandler(this.name_Textbox_LostFocus);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(362, 219);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(76, 13);
+            this.label1.TabIndex = 31;
+            this.label1.Text = "New Customer";
+            // 
             // customerInfo_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.clearCustomer_Button);
             this.Controls.Add(this.addCustomer_Button);
             this.Controls.Add(this.newCustomer_Label);
@@ -181,20 +172,15 @@
             this.Controls.Add(this.email_Textbox);
             this.Controls.Add(this.city_Textbox);
             this.Controls.Add(this.name_Textbox);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.existingCustomer_Label);
             this.Name = "customerInfo_Form";
             this.Text = "Customer Information";
             this.Load += new System.EventHandler(this.customerInfo_Form_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label existingCustomer_Label;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button clearCustomer_Button;
         private System.Windows.Forms.Button addCustomer_Button;
         private System.Windows.Forms.Label newCustomer_Label;
@@ -205,5 +191,6 @@
         private System.Windows.Forms.TextBox email_Textbox;
         private System.Windows.Forms.TextBox city_Textbox;
         private System.Windows.Forms.TextBox name_Textbox;
+        private System.Windows.Forms.Label label1;
     }
 }

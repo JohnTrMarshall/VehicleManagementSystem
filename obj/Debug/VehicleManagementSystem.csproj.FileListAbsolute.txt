@@ -39,3 +39,4 @@ C:\Users\John\Development\VehicleManagementSystem\obj\Debug\VehicleManagementSys
 C:\Users\John\Development\VehicleManagementSystem\obj\Debug\VehicleManagementSystem.Main_Form.resources
 C:\Users\John\Development\VehicleManagementSystem\obj\Debug\VehicleManagementSystem.customerInfo_Form.resources
 C:\Users\John\Development\VehicleManagementSystem\obj\Debug\VehicleManagementSystem.Employee_Form.resources
+C:\Users\John\Development\VehicleManagementSystem\obj\Debug\VehicleManagementSystem.processTransaction_Form.resources

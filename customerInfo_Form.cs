@@ -154,8 +154,8 @@ namespace VehicleManagementSystem
             if (validateForm())
             {
                 // adds information currently entered into database
-                Customer customer = new Customer(name_Textbox.Text, street_Textbox.Text, city_Textbox.Text, state_Textbox.Text, zip_Textbox.Text, phoneNumber_Textbox.Text, email_Textbox.Text);
-                customer.AddCustomer();
+                //Customer customer = new Customer(firstName_textbox.Text, lastName_textbox.Text, street_Textbox.Text, city_Textbox.Text, state_Textbox.Text, zip_Textbox.Text, phoneNumber_Textbox.Text, email_Textbox.Text);
+                //customer.AddCustomer();
             }
             
         }
@@ -238,5 +238,7 @@ namespace VehicleManagementSystem
 
             return true;
         }
+
+  
     }
 }

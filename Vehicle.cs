@@ -9,18 +9,18 @@ using System.Windows.Forms;
 namespace VehicleManagementSystem
 {
 
-    class Vehicle
+    public class Vehicle
     {
-        private String vin { get; set; }
-        private String make { get; set; }
-        private String model { get; set; }
-        private String color { get; set; }
-        private String owner { get; set; }
-        private String holder { get; set; }
-        private float price { get; set; }
-        private int mileage { get; set; }
-        private int year{ get; set; }
-        private DateTime returnDate { get; set; }
+        public String vin { get; set; }
+        public String make { get; set; }
+        public String model { get; set; }
+        public String color { get; set; }
+        public String owner { get; set; }
+        public String holder { get; set; }
+        public float price { get; set; }
+        public int mileage { get; set; }
+        public int year{ get; set; }
+        public DateTime returnDate { get; set; }
 
         public Vehicle()
         {

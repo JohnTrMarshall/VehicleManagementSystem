@@ -11,7 +11,8 @@ namespace VehicleManagementSystem
     class Customer
     {
                                                     
-        private string name { get; set; }
+        private string firstName { get; set; }
+        private string lastName { get; set; }
         private string street { get; set; }
         private string city { get; set; }
         private string state { get; set;  }
@@ -21,11 +22,12 @@ namespace VehicleManagementSystem
 
         public Customer()
         {
-            name = street = city = state = zip = phoneNumber = email = "";
+            firstName = lastName = street = city = state = zip = phoneNumber = email = "";
         }
-        public Customer(string name, string street, string city, string state, string zip, string phoneNumber, string email)
+        public Customer(string firstName, string lastName, string street, string city, string state, string zip, string phoneNumber, string email)
         {
-            this.name = name;
+            this.firstName = firstName;
+            this.lastName = lastName;
             this.street = street;
             this.city = city;
             this.state = state;
@@ -41,8 +43,11 @@ namespace VehicleManagementSystem
 
                 try
                 {
+
+                    connection.Open();
+
                     String query_str = $"INSERT INTO Customer " +
-                       $"VALUES ('{this.name}', '{this.street}', '{this.city}', '{this.state}', '{this.zip}', '{this.phoneNumber}', '{this.email}' )";
+                       $"VALUES ('{this.firstName}', '{this.lastName}', '{this.street}', '{this.city}', '{this.state}', '{this.zip}', '{this.phoneNumber}', '{this.email}' )";
 
                     SqlCommand query = new System.Data.SqlClient.SqlCommand(query_str, connection);
 

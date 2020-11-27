@@ -161,6 +161,7 @@
             this.sellVehicle_button.TabIndex = 10;
             this.sellVehicle_button.Text = "Sell";
             this.sellVehicle_button.UseVisualStyleBackColor = true;
+            this.sellVehicle_button.Click += new System.EventHandler(this.sellVehicle_button_Click);
             // 
             // purchaseVehicle_button
             // 
@@ -199,7 +200,6 @@
             this.userName_label.Size = new System.Drawing.Size(53, 20);
             this.userName_label.TabIndex = 13;
             this.userName_label.Text = "Guest";
-            this.userName_label.Click += new System.EventHandler(this.label1_Click);
             // 
             // Main_Form
             // 
