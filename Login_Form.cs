@@ -56,7 +56,8 @@ namespace VehicleManagementSystem
            
             DataTable dt = new DataTable(); //this is creating a virtual table  
             query.Fill(dt);
-            if (dt.Rows[0][0].ToString() == "1")
+
+            if (dt.Rows.Count == 1)
             {
                 /* I have made a new page called home page. If the user is successfully authenticated then the form will be moved to the next form */
                 textBox1.Clear();
@@ -65,7 +66,7 @@ namespace VehicleManagementSystem
                 // this is where the new authorized form will be enabled 
 
                 // create employee object
-               employee.name =  dt.Rows[0]["name"].ToString();
+               employee.name =  dt.Rows[0]["firstName"].ToString();
                employee.employeeID = (int)dt.Rows[0]["employeeID"];
                employee.userName = username;
 
