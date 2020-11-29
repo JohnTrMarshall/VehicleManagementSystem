@@ -9,17 +9,17 @@ namespace VehicleManagementSystem
 {
     public class Database
     {
-        private String connectionString;
+        private readonly String connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\John\\Development\\VehicleManagementSystem\\VehicleManagementSystemDatabase.mdf;Integrated Security=True;Connect Timeout=30";
 
         public Database()
         {
-            connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\John\\source\\repos\\VehicleManagementSystem\\VehicleManagementSystemDatabase.mdf;Integrated Security=True;Connect Timeout=30";
+            
         }
 
-        public SqlConnection Connect()
+        public string GetConnectionString()
         {
 
-           return new SqlConnection(connectionString);
+            return connectionString;
         }
 
     }
