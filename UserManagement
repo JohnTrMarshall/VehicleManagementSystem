@@ -1,0 +1,100 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using System.Data.SqlClient;
+
+namespace UserManagement
+{
+  public class UserManagement
+  {
+    private SqlConnection conn;
+    private string connectionString = "Data Source=hotelmanagement375.database.windows.net;Initial Catalog=HotelManagement;User ID=hoteladmin;Password=Letmein123";
+    
+    public UserManagement()
+    {
+      this.conn = new SqlConnection(this.connectionString);
+    }
+    
+    public bool createNewCustomer(Customer customer)
+    {
+      try
+      {
+        conn.Open();
+        
+        string name = customer.getName();
+        string username = customer.getUsername();
+        string password = customer.getPassword();
+        string dateOfBirth = customer.getDateOfBirth().ToString("MM-dd-yy");
+        
+        string insertString = $"INSERT INTO Customer (Name,Username,Password,DateofBirth)" +
+                              $"VALUES ('{name}','{username}','{password}','{dateOfBirth}', 0)";
+                              
+        SqlCommand cmd = new SqlCommand(insertString, conn);
+        
+        cmd.ExecuteNonQuery();
+      }
+      finally
+      {
+        if(conn != null)
+        {
+          conn.Close();
+        }
+      }
+      
+      return true;
+    }
+    
+    public bool updateCustomerInformation(int customerId, string newName, string newUsername, string newPassword)
+    {
+      try
+      {
+        conn.Open();
+        
+        string updateString = $"UPDATE Customer SET Name = '{newName}', Username = '{newUserName}', Password = '{newPassword}' WHERE CustomerId = {customerId}";
+        
+        SqlCommand cmd = new SqlCommand(updateString, conn);
+        
+        cmd.ExecuteNonQuery();
+        }
+        finally
+        {
+          if (conn != null)
+          {
+            conn.Close();
+          }
+        }
+        
+        return true;
+     }
+     
+     public bool createNewEmployee(Employee employee)
+        {
+            try
+            {
+                conn.Open();
+
+                string name = employee.getName();
+                string username = employee.getUsername();
+                string password = employee.getPassword();
+                string dateOfBirth = employee.getDateOfBirth().ToString("MM-dd-yy");
+
+                string insertString = $"INSERT INTO Employee (Name,Username,Password,DateOfBirth,Wage) " +
+                                      $"VALUES ('{name}','{username}','{password}','{dateOfBirth}',11.27)";
+
+                SqlCommand cmd = new SqlCommand(insertString, conn);
+
+                cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+
+            return true;
+        }
