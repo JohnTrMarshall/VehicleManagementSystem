@@ -249,6 +249,7 @@
             this.employeeName_textbox.Size = new System.Drawing.Size(156, 26);
             this.employeeName_textbox.TabIndex = 30;
             this.employeeName_textbox.Text = "Employee Name";
+            this.employeeName_textbox.TextChanged += new System.EventHandler(this.employeeName_textbox_TextChanged);
             // 
             // vehicleLabel_label
             // 
@@ -417,12 +418,13 @@
             // 
             // confirmTransaction_button
             // 
-            this.confirmTransaction_button.Location = new System.Drawing.Point(83, 401);
+            this.confirmTransaction_button.Location = new System.Drawing.Point(86, 401);
             this.confirmTransaction_button.Name = "confirmTransaction_button";
             this.confirmTransaction_button.Size = new System.Drawing.Size(89, 37);
             this.confirmTransaction_button.TabIndex = 18;
             this.confirmTransaction_button.Text = "Confirm Transaction";
             this.confirmTransaction_button.UseVisualStyleBackColor = true;
+            this.confirmTransaction_button.Click += new System.EventHandler(this.confirmTransaction_button_Click);
             // 
             // button1
             // 
@@ -432,6 +434,7 @@
             this.button1.TabIndex = 19;
             this.button1.Text = "Cancel Transacction";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // processTransaction_Form
             // 

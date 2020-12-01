@@ -16,13 +16,11 @@ C:\Users\ahmed\Source\Repos\VehicleManagementSystem\bin\Debug\VehicleManagementS
 C:\Users\ahmed\Source\Repos\VehicleManagementSystem\bin\Debug\VehicleManagementSystem.exe
 C:\Users\ahmed\Source\Repos\VehicleManagementSystem\bin\Debug\VehicleManagementSystem.pdb
 C:\Users\ahmed\Source\Repos\VehicleManagementSystem\obj\Debug\VehicleManagementSystem.csprojAssemblyReference.cache
-C:\Users\ahmed\Source\Repos\VehicleManagementSystem\obj\Debug\VehicleManagementSystem.main.resources
 C:\Users\ahmed\Source\Repos\VehicleManagementSystem\obj\Debug\VehicleManagementSystem.Properties.Resources.resources
 C:\Users\ahmed\Source\Repos\VehicleManagementSystem\obj\Debug\VehicleManagementSystem.csproj.GenerateResource.cache
 C:\Users\ahmed\Source\Repos\VehicleManagementSystem\obj\Debug\VehicleManagementSystem.csproj.CoreCompileInputs.cache
 C:\Users\ahmed\Source\Repos\VehicleManagementSystem\obj\Debug\VehicleManagementSystem.exe
 C:\Users\ahmed\Source\Repos\VehicleManagementSystem\obj\Debug\VehicleManagementSystem.pdb
-C:\Users\ahmed\Source\Repos\VehicleManagementSystem\obj\Debug\VehicleManagementSystem.Login.resources
 C:\Users\John\Development\VehicleManagementSystem\bin\Debug\VehicleManagementSystemDatabase.mdf
 C:\Users\John\Development\VehicleManagementSystem\bin\Debug\VehicleManagementSystemDatabase_log.ldf
 C:\Users\John\Development\VehicleManagementSystem\bin\Debug\VehicleManagementSystem.exe.config
@@ -40,3 +38,9 @@ C:\Users\John\Development\VehicleManagementSystem\obj\Debug\VehicleManagementSys
 C:\Users\John\Development\VehicleManagementSystem\obj\Debug\VehicleManagementSystem.customerInfo_Form.resources
 C:\Users\John\Development\VehicleManagementSystem\obj\Debug\VehicleManagementSystem.Employee_Form.resources
 C:\Users\John\Development\VehicleManagementSystem\obj\Debug\VehicleManagementSystem.processTransaction_Form.resources
+C:\Users\ahmed\Source\Repos\VehicleManagementSystem\obj\Debug\VehicleManagementSystem.Admin_Form.resources
+C:\Users\ahmed\Source\Repos\VehicleManagementSystem\obj\Debug\VehicleManagementSystem.customerInfo_Form.resources
+C:\Users\ahmed\Source\Repos\VehicleManagementSystem\obj\Debug\VehicleManagementSystem.Employee_Form.resources
+C:\Users\ahmed\Source\Repos\VehicleManagementSystem\obj\Debug\VehicleManagementSystem.Login_Form.resources
+C:\Users\ahmed\Source\Repos\VehicleManagementSystem\obj\Debug\VehicleManagementSystem.Main_Form.resources
+C:\Users\ahmed\Source\Repos\VehicleManagementSystem\obj\Debug\VehicleManagementSystem.processTransaction_Form.resources

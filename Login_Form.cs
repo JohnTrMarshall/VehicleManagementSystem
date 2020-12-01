@@ -55,14 +55,9 @@ namespace VehicleManagementSystem
             SqlDataAdapter query = new SqlDataAdapter("SELECT * FROM [Employee] WHERE userName='" + textBox1.Text + "' AND password='" + textBox2.Text + "'", connection);
            
             DataTable dt = new DataTable(); //this is creating a virtual table 
-           
             query.Fill(dt);
-<<<<<<<< HEAD:Login_Form.cs
 
-            if (dt.Rows.Count == 1)
-========
-            if (dt.Rows.Count<0)
->>>>>>>> origin/main:login.cs
+            if (dt.Rows.Count>0)
             {
                 /* I have made a new page called home page. If the user is successfully authenticated then the form will be moved to the next form */
                 textBox1.Clear();

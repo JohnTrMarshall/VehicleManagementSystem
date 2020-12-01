@@ -59,6 +59,7 @@
             this.vehicleList.Name = "vehicleList";
             this.vehicleList.Size = new System.Drawing.Size(727, 367);
             this.vehicleList.TabIndex = 1;
+            this.vehicleList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.vehicleList_CellContentClick);
             // 
             // login_Button
             // 
@@ -143,6 +144,7 @@
             this.rentVehicle_button.TabIndex = 12;
             this.rentVehicle_button.Text = "Rent";
             this.rentVehicle_button.UseVisualStyleBackColor = true;
+            this.rentVehicle_button.Click += new System.EventHandler(this.rentVehicle_button_Click);
             // 
             // loanVehicle_button
             // 
@@ -152,6 +154,7 @@
             this.loanVehicle_button.TabIndex = 11;
             this.loanVehicle_button.Text = "Loan";
             this.loanVehicle_button.UseVisualStyleBackColor = true;
+            this.loanVehicle_button.Click += new System.EventHandler(this.loanVehicle_button_Click);
             // 
             // sellVehicle_button
             // 
@@ -171,6 +174,7 @@
             this.purchaseVehicle_button.TabIndex = 9;
             this.purchaseVehicle_button.Text = "Purchase";
             this.purchaseVehicle_button.UseVisualStyleBackColor = true;
+            this.purchaseVehicle_button.Click += new System.EventHandler(this.purchaseVehicle_button_Click);
             // 
             // leaseVehicle_button
             // 
@@ -180,6 +184,7 @@
             this.leaseVehicle_button.TabIndex = 8;
             this.leaseVehicle_button.Text = "Lease";
             this.leaseVehicle_button.UseVisualStyleBackColor = true;
+            this.leaseVehicle_button.Click += new System.EventHandler(this.leaseVehicle_button_Click);
             // 
             // serviceVehicle_button
             // 

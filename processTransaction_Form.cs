@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -310,6 +311,45 @@ namespace VehicleManagementSystem
         private void clearCustomer_Button_Click_1(object sender, EventArgs e)
         {
             clearCustomer();
+        }
+
+        private void employeeName_textbox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Main_Form main = new Main_Form();
+            main.Show();
+        }
+
+        private void confirmTransaction_button_Click(object sender, EventArgs e)
+        {
+            Database db = new Database();
+            using (SqlConnection connection = new SqlConnection(db.GetConnectionString()))
+            {
+
+              
+
+                connection.Open();
+                int year;
+                int miles;
+                float price;
+                if (!int.TryParse(year_textbox.Text, out year)) year = 0;
+                if (!int.TryParse(mileage_textbox.Text, out miles)) miles = 0;
+                if (!float.TryParse(price_textbox.Text, out price)) price = 0;
+                SqlCommand cmd = connection.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                
+                cmd.CommandText = "INSERT INTO Vehicle (year, make, color, model, mileage, vin, price, owner) VALUES ('" + year + "','" + make_textbox.Text.ToString() + "','" + color_textbox.Text.ToString() + "','" + model_textbox.Text.ToString() + "','" + miles + "','" + vin_textbox.Text.ToString() + "','" + price + "','" + "Dearborn Ford" + "'); ";
+
+                cmd.ExecuteNonQuery();
+                connection.Close();
+                connection.Dispose();
+                MessageBox.Show("Vehicle added to inventory");
+                
+            }
         }
     }
 }
