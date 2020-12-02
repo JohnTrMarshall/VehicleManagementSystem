@@ -11,7 +11,7 @@ namespace UserManagement
   public class UserManagement
   {
     private SqlConnection conn;
-    private string connectionString = "Data Source=hotelmanagement375.database.windows.net;Initial Catalog=HotelManagement;User ID=hoteladmin;Password=Letmein123";
+    private string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\John\\Development\\VehicleManagementSystem\\VehicleManagementSystemDatabase.mdf;Initial Catalog=VehicleManagement;User ID=;Password=;
     
     public UserManagement()
     {
@@ -24,13 +24,17 @@ namespace UserManagement
       {
         conn.Open();
         
-        string name = customer.getName();
-        string username = customer.getUsername();
-        string password = customer.getPassword();
-        string dateOfBirth = customer.getDateOfBirth().ToString("MM-dd-yy");
-        
-        string insertString = $"INSERT INTO Customer (Name,Username,Password,DateofBirth)" +
-                              $"VALUES ('{name}','{username}','{password}','{dateOfBirth}', 0)";
+        string firstName = customer.getfirstName();
+        string lastName = customer.getlastName();
+        string street = customer.getstreet();
+        string city = customer.getcity();
+        string state = customer.getstate();
+        int zip = customer.getzip();
+        int phoneNumber = customer.getphoneNumber();
+        string email = customer.getemail();
+    
+        string insertString = $"INSERT INTO Customer " +
+                              $"VALUES ('{firstName}','{lastName}','{street}','{city}','{state}','{zip}','{phoneNumber}','{email}')";
                               
         SqlCommand cmd = new SqlCommand(insertString, conn);
         
@@ -47,42 +51,18 @@ namespace UserManagement
       return true;
     }
     
-    public bool updateCustomerInformation(int customerId, string newName, string newUsername, string newPassword)
-    {
-      try
-      {
-        conn.Open();
-        
-        string updateString = $"UPDATE Customer SET Name = '{newName}', Username = '{newUserName}', Password = '{newPassword}' WHERE CustomerId = {customerId}";
-        
-        SqlCommand cmd = new SqlCommand(updateString, conn);
-        
-        cmd.ExecuteNonQuery();
-        }
-        finally
-        {
-          if (conn != null)
-          {
-            conn.Close();
-          }
-        }
-        
-        return true;
-     }
-     
-     public bool createNewEmployee(Employee employee)
+    public bool createNewEmployee(Employee employee)
         {
             try
             {
                 conn.Open();
 
-                string name = employee.getName();
-                string username = employee.getUsername();
-                string password = employee.getPassword();
-                string dateOfBirth = employee.getDateOfBirth().ToString("MM-dd-yy");
-
-                string insertString = $"INSERT INTO Employee (Name,Username,Password,DateOfBirth,Wage) " +
-                                      $"VALUES ('{name}','{username}','{password}','{dateOfBirth}',11.27)";
+                int employeeID = employee.getemployeeID();
+                string name = employee.getname();
+                string userName = employee.getuserName();
+             
+                string insertString = $"INSERT INTO Employee (employeeID, Name, userName)" +
+                                      $"VALUES ('{employeeID}','{name}','{userName}')";
 
                 SqlCommand cmd = new SqlCommand(insertString, conn);
 
@@ -98,3 +78,26 @@ namespace UserManagement
 
             return true;
         }
+    
+    public bool updateCustomerInformation(int customerId, string newFirstName, string newLastName, string newStreet, string newCity, string newState, int newZip, int newPhoneNumber, string newEmail)
+    {
+      try
+      {
+        conn.Open();
+        
+        string updateString = $"UPDATE Customer SET FirstName = '{newFirstName}', LastName = '{newLastNameName}', Street = '{newStreet}, City = '{newCity}', State = '{newState}', Zip = '{newZip}', PhoneNumber = '{newPhoneNumber}', Email = '{newEmail}' WHERE CustomerId = {customerId}";
+        
+        SqlCommand cmd = new SqlCommand(updateString, conn);
+        
+        cmd.ExecuteNonQuery();
+        }
+        finally
+        {
+          if (conn != null)
+          {
+            conn.Close();
+          }
+        }
+        
+        return true;
+     }
