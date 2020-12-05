@@ -76,7 +76,7 @@ namespace VehicleManagementSystem
         }
         void fillVehicleList(SqlConnection connection)
         {
-            SqlDataAdapter query = new SqlDataAdapter("SELECT vin, make, model, year, color, price, mileage FROM Vehicle WHERE owner='Dearborn Ford'", connection);
+            SqlDataAdapter query = new SqlDataAdapter("SELECT vin, make, model, year, color, price, mileage FROM Vehicle WHERE holder='Dearborn Ford'", connection);
 
             DataTable table = new DataTable();
 
@@ -103,7 +103,7 @@ namespace VehicleManagementSystem
 
             makeComboBox.Items.Clear();
 
-            SqlCommand query = new SqlCommand("SELECT DISTINCT make FROM Vehicle WHERE owner='Dearborn Ford'", connection);
+            SqlCommand query = new SqlCommand("SELECT DISTINCT make FROM Vehicle WHERE holder='Dearborn Ford'", connection);
 
 
             SqlDataReader reader = query.ExecuteReader();
@@ -124,7 +124,7 @@ namespace VehicleManagementSystem
 
             modelComboBox.Items.Clear();
 
-            SqlCommand query = new SqlCommand("SELECT DISTINCT model FROM Vehicle WHERE owner='Dearborn Ford'", connection);
+            SqlCommand query = new SqlCommand("SELECT DISTINCT model FROM Vehicle WHERE holder='Dearborn Ford'", connection);
 
             SqlDataReader reader = query.ExecuteReader();
 
@@ -144,7 +144,7 @@ namespace VehicleManagementSystem
 
             yearComboBox.Items.Clear();
 
-            SqlCommand query = new SqlCommand("SELECT DISTINCT year FROM Vehicle WHERE owner='Dearborn Ford'", connection);
+            SqlCommand query = new SqlCommand("SELECT DISTINCT year FROM Vehicle WHERE holder='Dearborn Ford'", connection);
 
             SqlDataReader reader = query.ExecuteReader();
 
@@ -196,7 +196,7 @@ namespace VehicleManagementSystem
 
                     SqlDataAdapter query = new SqlDataAdapter("SELECT vin, make, model, year, color, price, mileage" +
                                                             " FROM Vehicle " +
-                                                            "WHERE owner='Dearborn Ford' AND make LIKE '" +
+                                                            "WHERE holder='Dearborn Ford' AND make LIKE '" +
                                                             make + "' AND model LIKE '" +
                                                             model + "' AND year LIKE '" +
                                                             year + "'", connection);
