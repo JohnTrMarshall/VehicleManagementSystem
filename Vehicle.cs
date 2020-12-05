@@ -70,19 +70,20 @@ namespace VehicleManagementSystem
 
             using (SqlConnection connection = new SqlConnection(db.GetConnectionString()))
             {
-                
+
+                connection.Open();
+
+                String query_str = ($"UPDATE Vehicle SET owner='{this.owner}', holder='{this.owner}' WHERE vin='{this.vin}'");
+
+                SqlCommand query = new SqlCommand(query_str, connection);
+
+                if (query.ExecuteNonQuery() == 0)
+                {
+                    MessageBox.Show("Error, no changes to database were made");
+                }
                 try
                 {
-                    connection.Open();
-
-                    String query_str = ($"UPDATE Vehicle SET owner='{this.owner}' WHERE vin='{this.vin}'");
-
-                    SqlCommand query = new SqlCommand(query_str, connection);
-
-                    if (query.ExecuteNonQuery() == 0)
-                    {
-                        MessageBox.Show("Error, no changes to database were made");
-                    }
+                   
                 }
                 catch (Exception)
                 {
