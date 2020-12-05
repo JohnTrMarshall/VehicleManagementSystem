@@ -335,6 +335,33 @@ namespace VehicleManagementSystem
 
                     Customer customer = new Customer(firstName_textbox.Text, lastName_textbox.Text, street_Textbox.Text, city_Textbox.Text, state_Textbox.Text, zip_Textbox.Text, phoneNumber_Textbox.Text, email_Textbox.Text);
 
+                    if (process_textbox.Text == "Purchase")
+                    {
+                        Database db = new Database();
+                        using (SqlConnection connection = new SqlConnection(db.GetConnectionString()))
+                        {
+
+
+
+                            connection.Open();
+                            int year;
+                            int miles;
+                            float price;
+                            if (!int.TryParse(year_textbox.Text, out year)) year = 0;
+                            if (!int.TryParse(mileage_textbox.Text, out miles)) miles = 0;
+                            if (!float.TryParse(price_textbox.Text, out price)) price = 0;
+                            SqlCommand cmd = connection.CreateCommand();
+                            cmd.CommandType = CommandType.Text;
+
+                            cmd.CommandText = "INSERT INTO Vehicle (year, make, color, model, mileage, vin, price, owner) VALUES ('" + year + "','" + make_textbox.Text.ToString() + "','" + color_textbox.Text.ToString() + "','" + model_textbox.Text.ToString() + "','" + miles + "','" + vin_textbox.Text.ToString() + "','" + price + "','" + "Dearborn Ford" + "'); ";
+
+                            cmd.ExecuteNonQuery();
+                            connection.Close();
+                            connection.Dispose();
+                            MessageBox.Show("Vehicle added to inventory");
+
+                        }
+                    }
                     if (process_textbox.Text == "Sell")
                     {
                         sellVehicle(customer);
@@ -346,7 +373,9 @@ namespace VehicleManagementSystem
 
                     showT_form.Show();
                 }
-            } 
+            }
+
+
         }
 
         
@@ -409,5 +438,18 @@ namespace VehicleManagementSystem
             vehicle.owner = customer.firstName + " " + customer.lastName;
             vehicle.sellVehicle();
         }
+
+        private void employeeName_textbox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Main_Form main = new Main_Form();
+            main.Show();
+        }
+
+        
     }
 }

@@ -314,6 +314,37 @@ namespace VehicleManagementSystem
 
         }
 
+        private void purchaseVehicle_button_Click(object sender, EventArgs e)
+        {
+            Vehicle vehicle = new Vehicle();
+
+         
+    
+            processTransaction_Form vi_form = new processTransaction_Form(vehicle, employee, "Purchase");
+          
+            this.Hide();
+            vi_form.Show();
+        }
+
+        private void vehicleList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void leaseVehicle_button_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void loanVehicle_button_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rentVehicle_button_Click(object sender, EventArgs e)
+        {
+
+        }
 
         public void loginEmployee(Employee employee)
         {
