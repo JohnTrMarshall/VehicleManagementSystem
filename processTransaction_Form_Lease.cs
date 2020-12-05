@@ -357,10 +357,7 @@ namespace VehicleManagementSystem
         {
             Database db = new Database();
             using (SqlConnection connection = new SqlConnection(db.GetConnectionString()))
-            {
-
-
-
+            {               
                 connection.Open();
                 int year;
                 int miles;
@@ -370,14 +367,18 @@ namespace VehicleManagementSystem
                 if (!float.TryParse(price_textbox.Text, out price)) price = 0;
                 SqlCommand cmd = connection.CreateCommand();
                 cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "UPDATE Vehicle SET returndate = @returndate, holder=@holder WHERE vin=@vin";      
+                cmd.Parameters.AddWithValue("@vin", vin_textbox.Text);
+                cmd.Parameters.AddWithValue("@holder", firstName_textbox.Text+ " " + lastName_textbox.Text);
+                cmd.Parameters.AddWithValue("@returndate", dateTimePicker1.Value);
 
-                cmd.CommandText = "INSERT INTO Vehicle (year, make, color, model, mileage, vin, price, owner, returndate) VALUES ('" + year + "','" + make_textbox.Text.ToString() + "','" + color_textbox.Text.ToString() + "','" + model_textbox.Text.ToString() + "','" + miles + "','" + vin_textbox.Text.ToString() + "','" + price + "','" + "Dearborn Ford" + "','" + dateTimePicker1.Value + "'); ";
-                
                 cmd.ExecuteNonQuery();
                 connection.Close();
                 connection.Dispose();
-                MessageBox.Show("Vehicle added to inventory");
+                MessageBox.Show("Transaction confirmed");
+                this.Close();
 
+                
             }
         }
     }
