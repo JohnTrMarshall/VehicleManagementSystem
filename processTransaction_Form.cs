@@ -320,6 +320,7 @@ namespace VehicleManagementSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.Close();
             Main_Form main = new Main_Form();
             main.Show();
         }
@@ -343,7 +344,7 @@ namespace VehicleManagementSystem
                 cmd.CommandType = CommandType.Text;
                 
                 cmd.CommandText = "INSERT INTO Vehicle (year, make, color, model, mileage, vin, price, owner) VALUES ('" + year + "','" + make_textbox.Text.ToString() + "','" + color_textbox.Text.ToString() + "','" + model_textbox.Text.ToString() + "','" + miles + "','" + vin_textbox.Text.ToString() + "','" + price + "','" + "Dearborn Ford" + "'); ";
-
+               
                 cmd.ExecuteNonQuery();
                 connection.Close();
                 connection.Dispose();

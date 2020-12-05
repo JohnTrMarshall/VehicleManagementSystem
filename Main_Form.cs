@@ -320,7 +320,18 @@ namespace VehicleManagementSystem
 
         private void leaseVehicle_button_Click(object sender, EventArgs e)
         {
-
+            Vehicle vehicle = new Vehicle();
+            vehicle.vin = vehicleList.CurrentRow.Cells[0].Value.ToString();
+            vehicle.make = vehicleList.CurrentRow.Cells[1].Value.ToString();
+            vehicle.model = vehicleList.CurrentRow.Cells[2].Value.ToString();
+            vehicle.year = (int)vehicleList.CurrentRow.Cells[3].Value;
+            vehicle.color = vehicleList.CurrentRow.Cells[4].Value.ToString();
+            vehicle.price = float.Parse(vehicleList.CurrentRow.Cells[5].Value.ToString());
+            vehicle.mileage = (int)vehicleList.CurrentRow.Cells[6].Value;
+            processTransaction_Form_Lease vi_form = new processTransaction_Form_Lease(vehicle, employee, "Lease");
+            
+            this.Hide();
+            vi_form.Show();
         }
 
         private void loanVehicle_button_Click(object sender, EventArgs e)

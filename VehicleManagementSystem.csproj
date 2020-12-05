@@ -97,6 +97,12 @@
     <Compile Include="Main_Form.Designer.cs">
       <DependentUpon>Main_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="processTransaction_Form_Lease.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="processTransaction_Form_Lease.Designer.cs">
+      <DependentUpon>processTransaction_Form_Lease.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vehicle.cs" />
@@ -125,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main_Form.resx">
       <DependentUpon>Main_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="processTransaction_Form_Lease.resx">
+      <DependentUpon>processTransaction_Form_Lease.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

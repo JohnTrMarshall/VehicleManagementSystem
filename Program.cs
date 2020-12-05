@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace VehicleManagementSystem
 {
     static class Program
@@ -16,7 +17,7 @@ namespace VehicleManagementSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Main_Form());
+            Application.Run(new Main_Form());         
         }
     }
 }
