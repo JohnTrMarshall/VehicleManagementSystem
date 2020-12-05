@@ -49,7 +49,6 @@
             this.vehicleLabel_label = new System.Windows.Forms.Label();
             this.customerInfo_label = new System.Windows.Forms.Label();
             this.clearCustomer_Button = new System.Windows.Forms.Button();
-            this.addCustomer_Button = new System.Windows.Forms.Button();
             this.phoneNumber_Textbox = new System.Windows.Forms.TextBox();
             this.zip_Textbox = new System.Windows.Forms.TextBox();
             this.state_Textbox = new System.Windows.Forms.TextBox();
@@ -57,21 +56,22 @@
             this.email_Textbox = new System.Windows.Forms.TextBox();
             this.city_Textbox = new System.Windows.Forms.TextBox();
             this.firstName_textbox = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.customerList = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.newCustomer_Label = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.lastName_textbox = new System.Windows.Forms.TextBox();
             this.confirmTransaction_button = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.cancelTransaction_button = new System.Windows.Forms.Button();
+            this.selectCustomer_button = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.customerList)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(24, 112);
+            this.label1.Location = new System.Drawing.Point(35, 118);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 20);
             this.label1.TabIndex = 0;
@@ -91,18 +91,17 @@
             // 
             this.color_label.AutoSize = true;
             this.color_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.color_label.Location = new System.Drawing.Point(26, 232);
+            this.color_label.Location = new System.Drawing.Point(37, 248);
             this.color_label.Name = "color_label";
             this.color_label.Size = new System.Drawing.Size(46, 20);
             this.color_label.TabIndex = 2;
             this.color_label.Text = "Color";
-            this.color_label.Click += new System.EventHandler(this.color_label_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(20, 152);
+            this.label4.Location = new System.Drawing.Point(31, 168);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 20);
             this.label4.TabIndex = 3;
@@ -112,7 +111,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(29, 192);
+            this.label5.Location = new System.Drawing.Point(40, 208);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(43, 20);
             this.label5.TabIndex = 4;
@@ -122,7 +121,7 @@
             // 
             this.vin_textbox.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.vin_textbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.vin_textbox.Location = new System.Drawing.Point(86, 309);
+            this.vin_textbox.Location = new System.Drawing.Point(97, 325);
             this.vin_textbox.Name = "vin_textbox";
             this.vin_textbox.Size = new System.Drawing.Size(210, 26);
             this.vin_textbox.TabIndex = 16;
@@ -132,7 +131,7 @@
             // 
             this.model_textbox.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.model_textbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.model_textbox.Location = new System.Drawing.Point(84, 149);
+            this.model_textbox.Location = new System.Drawing.Point(95, 165);
             this.model_textbox.Name = "model_textbox";
             this.model_textbox.Size = new System.Drawing.Size(212, 26);
             this.model_textbox.TabIndex = 12;
@@ -142,7 +141,7 @@
             // 
             this.make_textbox.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.make_textbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.make_textbox.Location = new System.Drawing.Point(84, 109);
+            this.make_textbox.Location = new System.Drawing.Point(95, 115);
             this.make_textbox.Name = "make_textbox";
             this.make_textbox.Size = new System.Drawing.Size(212, 26);
             this.make_textbox.TabIndex = 11;
@@ -152,18 +151,17 @@
             // 
             this.vin_label.AutoSize = true;
             this.vin_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.vin_label.Location = new System.Drawing.Point(36, 312);
+            this.vin_label.Location = new System.Drawing.Point(47, 328);
             this.vin_label.Name = "vin_label";
             this.vin_label.Size = new System.Drawing.Size(36, 20);
             this.vin_label.TabIndex = 8;
             this.vin_label.Text = "VIN";
-            this.vin_label.Click += new System.EventHandler(this.vin_label_Click);
             // 
             // year_textbox
             // 
             this.year_textbox.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.year_textbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.year_textbox.Location = new System.Drawing.Point(86, 189);
+            this.year_textbox.Location = new System.Drawing.Point(97, 205);
             this.year_textbox.Name = "year_textbox";
             this.year_textbox.Size = new System.Drawing.Size(210, 26);
             this.year_textbox.TabIndex = 13;
@@ -183,18 +181,17 @@
             // 
             this.color_textbox.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.color_textbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.color_textbox.Location = new System.Drawing.Point(86, 229);
+            this.color_textbox.Location = new System.Drawing.Point(97, 245);
             this.color_textbox.Name = "color_textbox";
             this.color_textbox.Size = new System.Drawing.Size(210, 26);
             this.color_textbox.TabIndex = 14;
             this.color_textbox.Text = "Color";
-            this.color_textbox.TextChanged += new System.EventHandler(this.color_textbox_TextChanged);
             // 
             // price_label
             // 
             this.price_label.AutoSize = true;
             this.price_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.price_label.Location = new System.Drawing.Point(28, 352);
+            this.price_label.Location = new System.Drawing.Point(39, 368);
             this.price_label.Name = "price_label";
             this.price_label.Size = new System.Drawing.Size(44, 20);
             this.price_label.TabIndex = 12;
@@ -204,7 +201,7 @@
             // 
             this.price_textbox.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.price_textbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.price_textbox.Location = new System.Drawing.Point(86, 349);
+            this.price_textbox.Location = new System.Drawing.Point(97, 365);
             this.price_textbox.Name = "price_textbox";
             this.price_textbox.Size = new System.Drawing.Size(210, 26);
             this.price_textbox.TabIndex = 17;
@@ -214,7 +211,7 @@
             // 
             this.mileage_label.AutoSize = true;
             this.mileage_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mileage_label.Location = new System.Drawing.Point(8, 272);
+            this.mileage_label.Location = new System.Drawing.Point(19, 288);
             this.mileage_label.Name = "mileage_label";
             this.mileage_label.Size = new System.Drawing.Size(64, 20);
             this.mileage_label.TabIndex = 14;
@@ -224,7 +221,7 @@
             // 
             this.mileage_textbox.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.mileage_textbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mileage_textbox.Location = new System.Drawing.Point(84, 269);
+            this.mileage_textbox.Location = new System.Drawing.Point(95, 285);
             this.mileage_textbox.Name = "mileage_textbox";
             this.mileage_textbox.Size = new System.Drawing.Size(212, 26);
             this.mileage_textbox.TabIndex = 15;
@@ -272,23 +269,13 @@
             // 
             // clearCustomer_Button
             // 
-            this.clearCustomer_Button.Location = new System.Drawing.Point(679, 218);
+            this.clearCustomer_Button.Location = new System.Drawing.Point(685, 221);
             this.clearCustomer_Button.Name = "clearCustomer_Button";
-            this.clearCustomer_Button.Size = new System.Drawing.Size(81, 23);
+            this.clearCustomer_Button.Size = new System.Drawing.Size(75, 23);
             this.clearCustomer_Button.TabIndex = 10;
             this.clearCustomer_Button.Text = "Clear";
             this.clearCustomer_Button.UseVisualStyleBackColor = true;
             this.clearCustomer_Button.Click += new System.EventHandler(this.clearCustomer_Button_Click_1);
-            // 
-            // addCustomer_Button
-            // 
-            this.addCustomer_Button.Location = new System.Drawing.Point(592, 218);
-            this.addCustomer_Button.Name = "addCustomer_Button";
-            this.addCustomer_Button.Size = new System.Drawing.Size(81, 23);
-            this.addCustomer_Button.TabIndex = 9;
-            this.addCustomer_Button.Text = "Add Customer";
-            this.addCustomer_Button.UseVisualStyleBackColor = true;
-            this.addCustomer_Button.Click += new System.EventHandler(this.addCustomer_Button_Click_1);
             // 
             // phoneNumber_Textbox
             // 
@@ -367,13 +354,13 @@
             this.firstName_textbox.Click += new System.EventHandler(this.firstName_Textbox_Click);
             this.firstName_textbox.LostFocus += new System.EventHandler(this.firstNameTextbox_LostFocus);
             // 
-            // dataGridView1
+            // customerList
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(418, 258);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(370, 180);
-            this.dataGridView1.TabIndex = 30;
+            this.customerList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.customerList.Location = new System.Drawing.Point(418, 258);
+            this.customerList.Name = "customerList";
+            this.customerList.Size = new System.Drawing.Size(370, 180);
+            this.customerList.TabIndex = 30;
             // 
             // label3
             // 
@@ -383,7 +370,6 @@
             this.label3.Size = new System.Drawing.Size(90, 13);
             this.label3.TabIndex = 30;
             this.label3.Text = "Existing Customer";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // newCustomer_Label
             // 
@@ -417,33 +403,45 @@
             // 
             // confirmTransaction_button
             // 
-            this.confirmTransaction_button.Location = new System.Drawing.Point(83, 401);
+            this.confirmTransaction_button.Location = new System.Drawing.Point(273, 8);
             this.confirmTransaction_button.Name = "confirmTransaction_button";
             this.confirmTransaction_button.Size = new System.Drawing.Size(89, 37);
             this.confirmTransaction_button.TabIndex = 18;
             this.confirmTransaction_button.Text = "Confirm Transaction";
             this.confirmTransaction_button.UseVisualStyleBackColor = true;
+            this.confirmTransaction_button.Click += new System.EventHandler(this.confirmTransaction_button_Click);
             // 
-            // button1
+            // cancelTransaction_button
             // 
-            this.button1.Location = new System.Drawing.Point(189, 401);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(89, 37);
-            this.button1.TabIndex = 19;
-            this.button1.Text = "Cancel Transacction";
-            this.button1.UseVisualStyleBackColor = true;
+            this.cancelTransaction_button.Location = new System.Drawing.Point(368, 8);
+            this.cancelTransaction_button.Name = "cancelTransaction_button";
+            this.cancelTransaction_button.Size = new System.Drawing.Size(89, 37);
+            this.cancelTransaction_button.TabIndex = 19;
+            this.cancelTransaction_button.Text = "Cancel Transacction";
+            this.cancelTransaction_button.UseVisualStyleBackColor = true;
+            this.cancelTransaction_button.Click += new System.EventHandler(this.cancelTransaction_button_Click);
+            // 
+            // selectCustomer_button
+            // 
+            this.selectCustomer_button.Location = new System.Drawing.Point(605, 221);
+            this.selectCustomer_button.Name = "selectCustomer_button";
+            this.selectCustomer_button.Size = new System.Drawing.Size(75, 23);
+            this.selectCustomer_button.TabIndex = 42;
+            this.selectCustomer_button.Text = "Select Customer";
+            this.selectCustomer_button.UseVisualStyleBackColor = true;
+            this.selectCustomer_button.Click += new System.EventHandler(this.selectCustomer_button_Click);
             // 
             // processTransaction_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.selectCustomer_button);
+            this.Controls.Add(this.cancelTransaction_button);
             this.Controls.Add(this.confirmTransaction_button);
             this.Controls.Add(this.lastName_textbox);
             this.Controls.Add(this.newCustomer_Label);
             this.Controls.Add(this.clearCustomer_Button);
-            this.Controls.Add(this.addCustomer_Button);
             this.Controls.Add(this.phoneNumber_Textbox);
             this.Controls.Add(this.zip_Textbox);
             this.Controls.Add(this.state_Textbox);
@@ -452,7 +450,7 @@
             this.Controls.Add(this.city_Textbox);
             this.Controls.Add(this.firstName_textbox);
             this.Controls.Add(this.customerInfo_label);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.customerList);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.vehicleLabel_label);
             this.Controls.Add(this.employeeName_label);
@@ -476,8 +474,8 @@
             this.Controls.Add(this.splitter1);
             this.Name = "processTransaction_Form";
             this.Text = "Process Transaction";
-            this.Load += new System.EventHandler(this.vehicleInfo_Form_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.processTransaction_Form_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.customerList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -506,7 +504,6 @@
         private System.Windows.Forms.Label vehicleLabel_label;
         private System.Windows.Forms.Label customerInfo_label;
         private System.Windows.Forms.Button clearCustomer_Button;
-        private System.Windows.Forms.Button addCustomer_Button;
         private System.Windows.Forms.TextBox phoneNumber_Textbox;
         private System.Windows.Forms.TextBox zip_Textbox;
         private System.Windows.Forms.TextBox state_Textbox;
@@ -514,12 +511,13 @@
         private System.Windows.Forms.TextBox email_Textbox;
         private System.Windows.Forms.TextBox city_Textbox;
         private System.Windows.Forms.TextBox firstName_textbox;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView customerList;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label newCustomer_Label;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.TextBox lastName_textbox;
         private System.Windows.Forms.Button confirmTransaction_button;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button cancelTransaction_button;
+        private System.Windows.Forms.Button selectCustomer_button;
     }
 }

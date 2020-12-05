@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,7 @@ namespace VehicleManagementSystem
     {
 
         Employee employee = new Employee();
+        Vehicle vehicle = new Vehicle();
         public processTransaction_Form()
         {
             InitializeComponent();
@@ -21,42 +23,45 @@ namespace VehicleManagementSystem
         public processTransaction_Form(Vehicle vehicle, Employee employee, string process_str)
         {
             InitializeComponent();
-            
+
             this.employee = employee;
+            this.vehicle = vehicle;
 
             process_textbox.Text = process_str;
+            process_textbox.Enabled = false;
 
-            vin_textbox.Text = vehicle.vin;
-            make_textbox.Text = vehicle.make;
-            model_textbox.Text = vehicle.model;
-            year_textbox.Text = vehicle.year.ToString();
-            color_textbox.Text = vehicle.color;
-            price_textbox.Text = vehicle.price.ToString();
-            mileage_textbox.Text = vehicle.mileage.ToString();
+
+            fillEmployee();
+            fillVehicle();
+            
+
+            if (process_str == "Sell")
+            {
+                
+
+                make_textbox.Enabled = false;
+                model_textbox.Enabled = false;
+                year_textbox.Enabled = false;
+                color_textbox.Enabled = false;
+                mileage_textbox.Enabled = false;
+                vin_textbox.Enabled = false;
+                price_textbox.Enabled = false;
+            }
         }
-        private void vin_label_Click(object sender, EventArgs e)
+       private void fillVehicle()
         {
-
+            vin_textbox.Text = this.vehicle.vin;
+            make_textbox.Text = this.vehicle.make;
+            model_textbox.Text = this.vehicle.model;
+            year_textbox.Text = this.vehicle.year.ToString();
+            color_textbox.Text = this.vehicle.color;
+            price_textbox.Text = "$" + this.vehicle.price.ToString();
+            mileage_textbox.Text = this.vehicle.mileage.ToString();
         }
-
-        private void vehicleInfo_Form_Load(object sender, EventArgs e)
+        private void fillEmployee()
         {
-
-        }
-
-        private void color_label_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void color_textbox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
+            employeeName_textbox.Text = this.employee.userName;
+            employeeName_textbox.Enabled = false;
         }
         private void clearCustomer_Button_Click(object sender, EventArgs e)
         {
@@ -225,7 +230,7 @@ namespace VehicleManagementSystem
         }
         public bool validateLastName()
         {
-            if (lastName_textbox.Text == "Last Name Name" || lastName_textbox.Text.Length > 30)
+            if (lastName_textbox.Text == "Last Name" || lastName_textbox.Text.Length > 30)
             {
                 MessageBox.Show("Error, invalid last name");
                 return false;
@@ -266,7 +271,7 @@ namespace VehicleManagementSystem
         }
         public bool validateZip()
         {
-            if (state_Textbox.Text == "Zip" || state_Textbox.Text.Length > 15)
+            if (state_Textbox.Text == "Zip" || zip_Textbox.Text.Length > 15)
             {
                 MessageBox.Show("Erorr, invalid zip");
                 return false;
@@ -296,20 +301,113 @@ namespace VehicleManagementSystem
             return true;
         }
 
-        private void addCustomer_Button_Click_1(object sender, EventArgs e)
-        {
-            if (validateForm())
-            {
-                // adds information currently entered into database
-                Customer customer = new Customer(firstName_textbox.Text, lastName_textbox.Text, street_Textbox.Text, city_Textbox.Text, state_Textbox.Text, zip_Textbox.Text, phoneNumber_Textbox.Text, email_Textbox.Text);
-                customer.AddCustomer();
-            }
-
-        }
+       
 
         private void clearCustomer_Button_Click_1(object sender, EventArgs e)
         {
             clearCustomer();
+        }
+
+        private void cancelTransaction_button_Click(object sender, EventArgs e)
+        {
+
+
+            if (MessageBox.Show("Cancel Transaction?", "Cancel Transaction", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                // user clicked yes
+                Main_Form main_Form = new Main_Form(employee);
+
+                employee = new Employee();
+                vehicle = new Vehicle();
+
+                this.Hide();
+                main_Form.Show();
+            }
+        }
+
+        private void confirmTransaction_button_Click(object sender, EventArgs e)
+        {
+            if (validateForm())
+            {
+
+                if (MessageBox.Show("Confirm Transaction", "Confirm Transaction", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+
+                    Customer customer = new Customer(firstName_textbox.Text, lastName_textbox.Text, street_Textbox.Text, city_Textbox.Text, state_Textbox.Text, zip_Textbox.Text, phoneNumber_Textbox.Text, email_Textbox.Text);
+
+                    if (process_textbox.Text == "Sell")
+                    {
+                        sellVehicle(customer);
+                    }
+
+                    showTransaction_Form showT_form = new showTransaction_Form(customer, vehicle, employee, process_textbox.Text);
+
+                    this.Hide();
+
+                    showT_form.Show();
+                }
+            } 
+        }
+
+        
+
+        
+        private void fillCustomerList()
+        {
+
+            Database db = new Database();
+
+            using (SqlConnection connection = new SqlConnection(db.GetConnectionString()))
+            {
+                SqlDataAdapter query = new SqlDataAdapter("SELECT firstName, lastName, street, city, state, zip, phoneNumber, email FROM Customer", connection);
+
+                DataTable table = new DataTable();
+
+                query.Fill(table);
+
+                customerList.DataSource = table;
+
+                customerList.Columns[0].HeaderText = "First Name";
+                customerList.Columns[1].HeaderText = "Last Name";
+                customerList.Columns[2].HeaderText = "street";
+                customerList.Columns[3].HeaderText = "City";
+                customerList.Columns[4].HeaderText = "State";
+                customerList.Columns[5].HeaderText = "Phone Number";
+                customerList.Columns[6].HeaderText = "Email";
+            }
+        }
+
+        private void processTransaction_Form_Load(object sender, EventArgs e)
+        {
+            fillCustomerList();
+        }
+
+        private void selectCustomer_button_Click(object sender, EventArgs e)
+        {
+            fillCustomer();
+        }
+
+        private void fillCustomer()
+        {
+            firstName_textbox.Text = customerList.CurrentRow.Cells[0].Value.ToString();
+            lastName_textbox.Text = customerList.CurrentRow.Cells[1].Value.ToString();
+            street_Textbox.Text = customerList.CurrentRow.Cells[2].Value.ToString();
+            city_Textbox.Text = customerList.CurrentRow.Cells[3].Value.ToString();
+            state_Textbox.Text = customerList.CurrentRow.Cells[4].Value.ToString();
+            zip_Textbox.Text = customerList.CurrentRow.Cells[5].Value.ToString();
+            zip_Textbox.Text = zip_Textbox.Text.Substring(0, zip_Textbox.Text.IndexOf(" "));
+            phoneNumber_Textbox.Text = customerList.CurrentRow.Cells[6].Value.ToString();
+            phoneNumber_Textbox.Text = phoneNumber_Textbox.Text.Substring(0, phoneNumber_Textbox.Text.IndexOf(" "));
+            email_Textbox.Text = customerList.CurrentRow.Cells[7].Value.ToString();
+
+        }
+        private void sellVehicle(Customer customer)
+        {
+            // adds information currently entered into database
+           customer.AddCustomer();
+
+            vehicle.owner = customer.firstName + " " + customer.lastName;
+            vehicle.sellVehicle();
         }
     }
 }

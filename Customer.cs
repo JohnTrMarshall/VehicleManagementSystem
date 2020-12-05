@@ -8,17 +8,17 @@ using System.Windows.Forms;
 
 namespace VehicleManagementSystem
 {
-    class Customer
+    public class Customer
     {
                                                     
-        private string firstName { get; set; }
-        private string lastName { get; set; }
-        private string street { get; set; }
-        private string city { get; set; }
-        private string state { get; set;  }
-        private string zip { get; set; }
-        private string phoneNumber { get; set;  }
-        private string email { get; set; }
+        public string firstName { get; set; }
+        public string lastName { get; set; }
+        public string street { get; set; }
+        public string city { get; set; }
+        public string state { get; set;  }
+        public string zip { get; set; }
+        public string phoneNumber { get; set;  }
+        public string email { get; set; }
 
         public Customer()
         {
@@ -53,8 +53,7 @@ namespace VehicleManagementSystem
 
                     query.ExecuteNonQuery();
 
-                    MessageBox.Show("Customer has successfully been added");
-                }
+                 }
                 catch (Exception)
                 {
                     MessageBox.Show("Error, failed to connect to database");
