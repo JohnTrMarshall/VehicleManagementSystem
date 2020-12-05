@@ -27,9 +27,17 @@ namespace VehicleManagementSystem
         {
             InitializeComponent();
         }
+        public Main_Form(Employee employee)
+        {
+            InitializeComponent();
 
+            this.employee = employee;
+
+
+        }
         private void main_Load(object sender, EventArgs e)
         {
+
             purchaseVehicle_button.Hide();
             sellVehicle_button.Hide();
             leaseVehicle_button.Hide();
@@ -50,6 +58,11 @@ namespace VehicleManagementSystem
                 }
             }
 
+
+            if (employee.employeeID != 0)
+            {
+                loginEmployee(employee);
+            }
         }
         public void test(Object sender, EventArgs e)
         {

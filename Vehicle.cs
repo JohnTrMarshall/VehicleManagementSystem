@@ -27,7 +27,7 @@ namespace VehicleManagementSystem
             vin = make = model = color = owner = holder = "";
             price = 0;
             mileage = year = 0;
-            returnDate = new DateTime(2000, 1, 1);
+            returnDate = new DateTime(1900, 1, 1);
         }
         public void addVehicle(Vehicle v)
         {
@@ -62,6 +62,33 @@ namespace VehicleManagementSystem
         public void removeVehicle()
         {
             
+        }
+
+        public void sellVehicle()
+        {
+            Database db = new Database();
+
+            using (SqlConnection connection = new SqlConnection(db.GetConnectionString()))
+            {
+                
+                try
+                {
+                    connection.Open();
+
+                    String query_str = ($"UPDATE Vehicle SET owner='{this.owner}' WHERE vin='{this.vin}'");
+
+                    SqlCommand query = new SqlCommand(query_str, connection);
+
+                    if (query.ExecuteNonQuery() == 0)
+                    {
+                        MessageBox.Show("Error, no changes to database were made");
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Error, failed to connect to database");
+                }
+            }
         }
     }
 }
