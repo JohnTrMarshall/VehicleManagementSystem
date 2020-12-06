@@ -59,10 +59,7 @@ namespace VehicleManagementSystem
             }     // end sql connection       
         }
 
-        public void removeVehicle()
-        {
-            
-        }
+       
 
         public void sellVehicle()
         {

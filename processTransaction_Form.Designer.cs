@@ -436,9 +436,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.selectCustomer_button);
             this.Controls.Add(this.cancelTransaction_button);
+
             this.Controls.Add(this.confirmTransaction_button);
             this.Controls.Add(this.lastName_textbox);
             this.Controls.Add(this.newCustomer_Label);

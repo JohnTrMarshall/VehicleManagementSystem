@@ -127,6 +127,7 @@
             this.Controls.Add(this.addVehicle_Button);
             this.Name = "Admin_Form";
             this.Text = "Admin";
+            this.Load += new System.EventHandler(this.Admin_Form_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

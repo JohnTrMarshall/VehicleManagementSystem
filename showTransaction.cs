@@ -60,7 +60,7 @@ namespace VehicleManagementSystem
             }
             else {
 
-                //returnBy_textbox.Text = vehicle.returnDate.ToString();
+                returnBy_textbox.Text = vehicle.returnDate.ToString("yyyy-MM-dd");
             }
         }
         private void fillEmployee()

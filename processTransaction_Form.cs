@@ -353,12 +353,21 @@ namespace VehicleManagementSystem
                             SqlCommand cmd = connection.CreateCommand();
                             cmd.CommandType = CommandType.Text;
 
-                            cmd.CommandText = "INSERT INTO Vehicle (year, make, color, model, mileage, vin, price, owner) VALUES ('" + year + "','" + make_textbox.Text.ToString() + "','" + color_textbox.Text.ToString() + "','" + model_textbox.Text.ToString() + "','" + miles + "','" + vin_textbox.Text.ToString() + "','" + price + "','" + "Dearborn Ford" + "'); ";
+                            cmd.CommandText = "INSERT INTO Vehicle (year, make, color, model, mileage, vin, price, owner, holder) VALUES ('" + year + "','" + make_textbox.Text.ToString() + "','" + color_textbox.Text.ToString() + "','" + model_textbox.Text.ToString() + "','" + miles + "','" + vin_textbox.Text.ToString() + "','" + price + "','" + "Dearborn Ford', 'Dearborn Ford'); ";
 
                             cmd.ExecuteNonQuery();
                             connection.Close();
                             connection.Dispose();
-                            MessageBox.Show("Vehicle added to inventory");
+
+                            vehicle.make = make_textbox.Text;
+                            vehicle.model = model_textbox.Text;
+                            vehicle.year = year;
+                            vehicle.color = color_textbox.Text;
+                            vehicle.mileage = miles;
+                            vehicle.vin = vin_textbox.Text;
+                            vehicle.price = price;
+                            vehicle.owner = "Dearborn Ford";
+                            vehicle.holder = "Dearborn Ford";
 
                         }
                     }
@@ -374,8 +383,6 @@ namespace VehicleManagementSystem
                     showT_form.Show();
                 }
             }
-
-
         }
 
         
@@ -403,6 +410,7 @@ namespace VehicleManagementSystem
                 customerList.Columns[4].HeaderText = "State";
                 customerList.Columns[5].HeaderText = "Phone Number";
                 customerList.Columns[6].HeaderText = "Email";
+
             }
         }
 
