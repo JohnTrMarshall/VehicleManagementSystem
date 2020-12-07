@@ -370,8 +370,7 @@ namespace VehicleManagementSystem
                 cmd.CommandText = "UPDATE Vehicle SET returndate = @returndate, holder=@holder WHERE vin=@vin";      
                 cmd.Parameters.AddWithValue("@vin", vin_textbox.Text);
                 cmd.Parameters.AddWithValue("@holder", firstName_textbox.Text+ " " + lastName_textbox.Text);
-                cmd.Parameters.AddWithValue("@returndate", dateTimePicker1.Value);
-                
+                cmd.Parameters.AddWithValue("@returndate", dateTimePicker1.Value);              
                 cmd.CommandText = "INSERT INTO Customer (firstName, lastName, street, city, zip, phoneNumber, email, state) VALUES ('" + firstName_textbox.Text.ToString() + "','" + lastName_textbox.Text.ToString() + "','" + street_Textbox.Text.ToString() + "','" + city_Textbox.Text.ToString() + "','" + zip_Textbox.Text.ToString() + "','" + phoneNumber_Textbox.Text.ToString() + "','" + email_Textbox.Text.ToString() + "','" + state_Textbox.Text.ToString() + "'); ";
                 cmd.ExecuteNonQuery();
                 connection.Close();
