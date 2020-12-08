@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.addVehicle_Button = new System.Windows.Forms.Button();
             this.vehicleFunction_Label = new System.Windows.Forms.Label();
             this.deleteVehicle_Button = new System.Windows.Forms.Button();
@@ -121,10 +120,10 @@
             this.label45 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
             this.modifyMileage = new System.Windows.Forms.TextBox();
-            this.vehicleManagementSystemDatabaseDataSet = new VehicleManagementSystem.VehicleManagementSystemDatabaseDataSet();
-            this.dataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.vehicleManagementSystemDatabaseDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).BeginInit();
+            this.addVehicleFile = new System.Windows.Forms.TextBox();
+            this.addFileButton = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // addVehicle_Button
@@ -926,21 +925,50 @@
             this.modifyMileage.Size = new System.Drawing.Size(144, 20);
             this.modifyMileage.TabIndex = 96;
             // 
-            // vehicleManagementSystemDatabaseDataSet
+            // addVehicleFile
             // 
-            this.vehicleManagementSystemDatabaseDataSet.DataSetName = "VehicleManagementSystemDatabaseDataSet";
-            this.vehicleManagementSystemDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.addVehicleFile.Location = new System.Drawing.Point(743, 304);
+            this.addVehicleFile.Name = "addVehicleFile";
+            this.addVehicleFile.Size = new System.Drawing.Size(144, 20);
+            this.addVehicleFile.TabIndex = 98;
             // 
-            // dataTable1BindingSource
+            // addFileButton
             // 
-            this.dataTable1BindingSource.DataMember = "DataTable1";
-            this.dataTable1BindingSource.DataSource = this.vehicleManagementSystemDatabaseDataSet;
+            this.addFileButton.Location = new System.Drawing.Point(910, 304);
+            this.addFileButton.Name = "addFileButton";
+            this.addFileButton.Size = new System.Drawing.Size(88, 23);
+            this.addFileButton.TabIndex = 99;
+            this.addFileButton.Text = "Add File";
+            this.addFileButton.UseVisualStyleBackColor = true;
+            this.addFileButton.Click += new System.EventHandler(this.addFileButton_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(680, 307);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(57, 13);
+            this.label14.TabIndex = 100;
+            this.label14.Text = "File Name:";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(788, 288);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(83, 13);
+            this.label47.TabIndex = 101;
+            this.label47.Text = "Add Vehicle File";
             // 
             // Admin_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1377, 655);
+            this.Controls.Add(this.label47);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.addFileButton);
+            this.Controls.Add(this.addVehicleFile);
             this.Controls.Add(this.label46);
             this.Controls.Add(this.modifyMileage);
             this.Controls.Add(this.label45);
@@ -1036,8 +1064,6 @@
             this.Name = "Admin_Form";
             this.Text = "Admin";
             this.Load += new System.EventHandler(this.Admin_Form_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.vehicleManagementSystemDatabaseDataSet)).EndInit();
-            //((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1137,7 +1163,9 @@
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.TextBox modifyMileage;
-        private VehicleManagementSystemDatabaseDataSet vehicleManagementSystemDatabaseDataSet;
-        private System.Windows.Forms.BindingSource dataTable1BindingSource;
+        private System.Windows.Forms.TextBox addVehicleFile;
+        private System.Windows.Forms.Button addFileButton;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label47;
     }
 }

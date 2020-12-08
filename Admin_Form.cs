@@ -451,5 +451,26 @@ namespace VehicleManagementSystem
             vehicleListBox.Update();
 
         }
+
+        private void addFileButton_Click(object sender, EventArgs e)
+        {
+            Config config = new Config();
+            string path = addVehicleFile.Text;
+
+            config.readVehicleFile(path);
+
+            modifyVehicleListBox.Items.Clear();
+            vehicleListBox.Items.Clear();
+
+            foreach (var pair in vehicles)
+            {
+                modifyVehicleListBox.Items.Add($"{pair.Value.getVin()}");
+                vehicleListBox.Items.Add($"{pair.Value.getVin()}");
+            }
+            modifyVehicleListBox.Update();
+            vehicleListBox.Update();
+
+
+        }
     }
 }
