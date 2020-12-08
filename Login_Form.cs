@@ -70,8 +70,7 @@ namespace VehicleManagementSystem
                if(employee.jobTitle.Equals("Admin"))
                 {                 
                     Admin_Form admin = new Admin_Form();        
-                    if (admin != null) admin.loginAdmin(employee);
-                    admin.Show();
+                    if (admin != null)admin.Show();
                     
                 }
                else
