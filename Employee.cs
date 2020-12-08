@@ -13,10 +13,8 @@ namespace VehicleManagementSystem
         public string userName { get; set; }
         public string jobTitle { get; set; }
         
-
         public Employee()
         {
-
             name = userName = jobTitle= "";
             employeeID = 0;
         }
