@@ -1037,7 +1037,7 @@
             this.Text = "Admin";
             this.Load += new System.EventHandler(this.Admin_Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.vehicleManagementSystemDatabaseDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

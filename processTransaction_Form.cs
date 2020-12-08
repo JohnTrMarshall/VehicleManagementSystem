@@ -421,7 +421,10 @@ namespace VehicleManagementSystem
 
         private void selectCustomer_button_Click(object sender, EventArgs e)
         {
-            fillCustomer();
+           if (!validateForm())
+            {
+                fillCustomer();
+            }
         }
 
         private void fillCustomer()
