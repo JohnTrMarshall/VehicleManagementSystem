@@ -273,6 +273,7 @@ namespace VehicleManagementSystem
             
             if (employee.employeeID == 0)
             {
+                this.Hide();
                 login.Show();
             }
             else

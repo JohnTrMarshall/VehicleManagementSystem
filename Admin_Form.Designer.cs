@@ -93,6 +93,7 @@
             this.addUser_Label.TabIndex = 5;
             this.addUser_Label.Text = "Add User";
             this.addUser_Label.UseVisualStyleBackColor = true;
+            this.addUser_Label.Click += new System.EventHandler(this.addUser_Label_Click);
             // 
             // deleteUser
             // 

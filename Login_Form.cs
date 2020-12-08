@@ -17,11 +17,7 @@ namespace VehicleManagementSystem
         public Login_Form()
         {
             InitializeComponent();
-        }
-        public Login_Form(Main_Form mf)
-        {
-           
-        }
+        }   
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             
@@ -69,10 +65,22 @@ namespace VehicleManagementSystem
                employee.name =  dt.Rows[0]["firstName"].ToString();
                employee.employeeID = (int)dt.Rows[0]["employeeID"];
                employee.userName = username;
-
-                // pass employee to main form
-                Main_Form main = (Main_Form)Application.OpenForms["Main_Form"];
-                if (main != null) main.loginEmployee(employee);
+               employee.jobTitle = dt.Rows[0]["jobTitle"].ToString().Trim();
+                
+               if(employee.jobTitle.Equals("Admin"))
+                {                 
+                    Admin_Form admin = new Admin_Form();        
+                    if (admin != null) admin.loginAdmin(employee);
+                    admin.Show();
+                    
+                }
+               else
+                {    // pass employee to main form
+                    Main_Form main = (Main_Form)Application.OpenForms["Main_Form"];
+                    if (main != null) main.loginEmployee(employee);
+                    main.Show();
+                }
+                
             }
             else
                 MessageBox.Show("Invalid username or password");
