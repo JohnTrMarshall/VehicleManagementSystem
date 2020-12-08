@@ -15,6 +15,7 @@ namespace VehicleManagementSystem
     {
 
         Employee employee = new Employee();
+        Main_Form mf = new Main_Form();
         public processTransaction_Form_Lease()
         {
             InitializeComponent();
@@ -26,7 +27,7 @@ namespace VehicleManagementSystem
             this.employee = employee;
 
             process_textbox.Text = process_str;
-
+            employeeName_textbox.Text = employee.name.ToString();
             vin_textbox.Text = vehicle.vin;
             make_textbox.Text = vehicle.make;
             model_textbox.Text = vehicle.model;
@@ -384,7 +385,9 @@ namespace VehicleManagementSystem
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-
+            this.Close();
+            mf.Show();
+            
         }
     }
 }
