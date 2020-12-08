@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Windows.Forms;
-using System.Data;
-using System.Drawing;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace VehicleManagementSystem
 {
@@ -10,8 +8,8 @@ namespace VehicleManagementSystem
     { 
        public Admin admin;
 
-       public Dictionary<int, Employee> employees;
-       public Dictionary<int, Vehicle> vehicles;
+       private Dictionary<int, Employee> employees;
+       private Dictionary<int, Vehicle> vehicles;
 
    
         
@@ -28,10 +26,8 @@ namespace VehicleManagementSystem
             
             foreach (var pair in employees)
             {
-                employeeIDListBox.Items.Add($"{pair.Value.getEmployeeID()}  {pair.Value.getFirstName()}  {pair.Value.getLastName()}");
-                modifyEmployeeListBox.Items.Add($"{pair.Value.getEmployeeID()} {pair.Value.getFirstName()} {pair.Value.getLastName()}");
-
-                
+                employeeIDListBox.Items.Add($"{pair.Value.getEmployeeID()} {pair.Value.getFirstName().Trim()} {pair.Value.getLastName().Trim()}");
+                modifyEmployeeListBox.Items.Add($"{pair.Value.getEmployeeID()} {pair.Value.getFirstName().Trim()} {pair.Value.getLastName().Trim()}");
             }
 
             vehicles = admin.getVehicleData(); //Get a list of all vehicles
@@ -48,6 +44,7 @@ namespace VehicleManagementSystem
             Employee employee;
             int employeeId;
 
+
             string employeeItem = employeeIDListBox.SelectedItem.ToString();
             employeeId = Convert.ToInt32(employeeItem.Substring(0, employeeItem.IndexOf(' ')));
             employee = new Employee(null, employeeId, null, null, null, null, null, null, null, null, null, null);
@@ -60,8 +57,8 @@ namespace VehicleManagementSystem
 
             foreach(var pair in employees)
             {
-                employeeIDListBox.Items.Add($"{pair.Value.getEmployeeID()} {pair.Value.getFirstName()} {pair.Value.getLastName()}");
-                modifyEmployeeListBox.Items.Add($"{pair.Value.getEmployeeID()} {pair.Value.getFirstName()} {pair.Value.getLastName()}");
+                employeeIDListBox.Items.Add($"{pair.Value.getEmployeeID()} {pair.Value.getFirstName().Trim()} {pair.Value.getLastName().Trim()}");
+                modifyEmployeeListBox.Items.Add($"{pair.Value.getEmployeeID()} {pair.Value.getFirstName().Trim()} {pair.Value.getLastName().Trim()}");
             }
 
             employeeIDListBox.Update();
@@ -73,8 +70,8 @@ namespace VehicleManagementSystem
             admin = new Admin();
             Employee employee;
 
-            string employeeItem = modifyEmployeeListBox.SelectedItem.ToString();
-            int employeeId = Convert.ToInt32(employeeItem.Substring(0, employeeItem.IndexOf(' ')));
+             int employeeId = modifyEmployeeListBox.SelectedIndex + 1;
+           
 
             string firstName = modifyFirstName.Text;
             string address = modifyAddress.Text;
@@ -89,16 +86,29 @@ namespace VehicleManagementSystem
             string lastName = modifyLastName.Text;
 
             employee = new Employee(username, employeeId, password, firstName, lastName, address, city, state, zip, phoneNumber, email, jobTitle);
-            this.admin.updateEmployeeInfo(employee);
+            admin.updateEmployeeInfo(employee);
             employees = admin.getEmployeeData();
 
             modifyEmployeeListBox.Items.Clear();
             employeeIDListBox.Items.Clear();
 
+            modifyFirstName.Clear();
+            modifyAddress.Clear();
+            modifyCity.Clear();
+            modifyState.Clear();
+            modifyZip.Clear();
+            modifyPhoneNumber.Clear();
+            modifyEmail.Clear();
+            modifyPassword.Clear();
+            modifyJobTitle.Clear();
+            modifyUsername.Clear();
+            modifyLastName.Clear();
+
+
             foreach (var pair in employees)
             {
-                employeeIDListBox.Items.Add($"{pair.Value.getEmployeeID()} {pair.Value.getFirstName()} {pair.Value.getLastName()}");
-                modifyEmployeeListBox.Items.Add($"{pair.Value.getEmployeeID()} {pair.Value.getFirstName()} {pair.Value.getLastName()}");
+                employeeIDListBox.Items.Add($"{pair.Value.getEmployeeID()} {pair.Value.getFirstName().Trim()} {pair.Value.getLastName().Trim()}");
+                modifyEmployeeListBox.Items.Add($"{pair.Value.getEmployeeID()} {pair.Value.getFirstName().Trim()} {pair.Value.getLastName().Trim()}");
             }
 
             employeeIDListBox.Update();
@@ -126,11 +136,19 @@ namespace VehicleManagementSystem
             DateTime returnDate = new DateTime(2000, 1, 1);
 
             vehicle = new Vehicle(1, vin, make, model, color, owner, holder, price, mileage, year, returnDate);
-            this.admin.addVehicle(vehicle);
+            admin.addVehicle(vehicle);
             vehicles = admin.getVehicleData();
 
             modifyVehicleListBox.Items.Clear();
             vehicleListBox.Items.Clear();
+
+            addVin.Clear();
+            addMake.Clear();
+            addModel.Clear();
+            addColor.Clear();
+            addPrice.Clear();
+            addMileage.Clear();
+            addYear.Clear();
 
             foreach(var pair in vehicles)
             {
@@ -144,7 +162,7 @@ namespace VehicleManagementSystem
         private void deleteVehicle_Button_Click(object sender, EventArgs e)
         { 
             string vin = vehicleListBox.SelectedItem.ToString();
-            this.admin.DeleteVehicle(vin);
+            admin.DeleteVehicle(vin);
             vehicles = admin.getVehicleData();
 
             modifyVehicleListBox.Items.Clear();
@@ -181,9 +199,11 @@ namespace VehicleManagementSystem
             admin = new Admin();
             Employee employee;
 
-            
+
             string fName = addFname.Text;
+            fName.Trim();
             string lName = addLname.Text;
+            lName.Trim();
             string address = addAddress.Text;
             string city = addCity.Text;
             string state = addState.Text;
@@ -196,18 +216,30 @@ namespace VehicleManagementSystem
             
 
             employee = new Employee(username, 1, password, fName, lName, address, city, state, zip, pNum, email, job);
-            this.admin.addEmployee(employee);
+            admin.addEmployee(employee);
             employees = admin.getEmployeeData();
 
             employeeIDListBox.Items.Clear();
             modifyEmployeeListBox.Items.Clear();
+            addFname.Clear();
+            addLname.Clear();
+            addAddress.Clear();
+            addCity.Clear();
+            addState.Clear();
+            addZIP.Clear();
+            addPnumber.Clear();
+            addEmail.Clear();
+            addUsername.Clear();
+            addPassword.Clear();
+            addJobTitle.Clear();
+            
 
             foreach (var pair in employees)
             {
-                    employeeIDListBox.Items.Add($"{pair.Value.getEmployeeID()}  {pair.Value.getFirstName()}  {pair.Value.getLastName()}");
-                    modifyEmployeeListBox.Items.Add($"{pair.Value.getEmployeeID()}  {pair.Value.getFirstName()} {pair.Value.getLastName()}");
+                    employeeIDListBox.Items.Add($"{pair.Value.getEmployeeID()} {pair.Value.getFirstName().Trim()} {pair.Value.getLastName().Trim()}");
+                    modifyEmployeeListBox.Items.Add($"{pair.Value.getEmployeeID()} {pair.Value.getFirstName().Trim()} {pair.Value.getLastName().Trim()}");
             }
-
+            
             employeeIDListBox.Update();
             modifyEmployeeListBox.Update();
         }
@@ -369,8 +401,7 @@ namespace VehicleManagementSystem
         }
 
         private void employeeIDListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int employeeId = employeeIDListBox.SelectedIndex + 1;
+        { 
 
         }
 
@@ -381,9 +412,8 @@ namespace VehicleManagementSystem
 
         private void modifyVehicle_Click_1(object sender, EventArgs e)
         {
-            string vin = vehicleListBox.SelectedItem.ToString();
             Vehicle vehicle;
-
+            string vin = modifyVehicleListBox.SelectedItem.ToString();
             string make = modifyMake.Text;
             string model = modifyModel.Text;
             string color = modifyColor.Text;
@@ -398,12 +428,19 @@ namespace VehicleManagementSystem
             DateTime returnDate = new DateTime(2000, 1, 1);
 
             vehicle = new Vehicle(1, vin, make, model, color, owner, holder, price, mileage, year, returnDate);
-            this.admin.updateVehicleInfo(vehicle);
+            admin.updateVehicleInfo(vehicle);
 
             vehicles = admin.getVehicleData();
 
             modifyVehicleListBox.Items.Clear();
             vehicleListBox.Items.Clear();
+
+            modifyMake.Clear();
+            modifyModel.Clear();
+            modifyColor.Clear();
+            modifyPrice.Clear();
+            modifyMileage.Clear();
+            modifyYear.Clear();
 
             foreach (var pair in vehicles)
             {

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-
+            this.components = new System.ComponentModel.Container();
             this.addVehicle_Button = new System.Windows.Forms.Button();
             this.vehicleFunction_Label = new System.Windows.Forms.Label();
             this.deleteVehicle_Button = new System.Windows.Forms.Button();
@@ -121,6 +121,10 @@
             this.label45 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
             this.modifyMileage = new System.Windows.Forms.TextBox();
+            this.vehicleManagementSystemDatabaseDataSet = new VehicleManagementSystem.VehicleManagementSystemDatabaseDataSet();
+            this.dataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.vehicleManagementSystemDatabaseDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // addVehicle_Button
@@ -922,6 +926,16 @@
             this.modifyMileage.Size = new System.Drawing.Size(144, 20);
             this.modifyMileage.TabIndex = 96;
             // 
+            // vehicleManagementSystemDatabaseDataSet
+            // 
+            this.vehicleManagementSystemDatabaseDataSet.DataSetName = "VehicleManagementSystemDatabaseDataSet";
+            this.vehicleManagementSystemDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dataTable1BindingSource
+            // 
+            this.dataTable1BindingSource.DataMember = "DataTable1";
+            this.dataTable1BindingSource.DataSource = this.vehicleManagementSystemDatabaseDataSet;
+            // 
             // Admin_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1022,6 +1036,8 @@
             this.Name = "Admin_Form";
             this.Text = "Admin";
             this.Load += new System.EventHandler(this.Admin_Form_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.vehicleManagementSystemDatabaseDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1121,5 +1137,7 @@
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.TextBox modifyMileage;
+        private VehicleManagementSystemDatabaseDataSet vehicleManagementSystemDatabaseDataSet;
+        private System.Windows.Forms.BindingSource dataTable1BindingSource;
     }
 }
