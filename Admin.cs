@@ -293,12 +293,14 @@ namespace VehicleManagementSystem
 
             try
             {
+                
+
                 conn.Open(); //Open the SQL connection
 
                 SqlCommand getVehicleInfo = new SqlCommand("SELECT * FROM Vehicle", this.conn);
 
                 rdr = getVehicleInfo.ExecuteReader();
-                
+
                 while (rdr.Read())
                 {
                     int vehicleID = (int)rdr[0];
@@ -308,11 +310,11 @@ namespace VehicleManagementSystem
                     int year = (int)rdr[4];
                     string color = (string)rdr[5];
                     string owner = (string)rdr[6];
-                    string holder = (string)rdr[7];
+                    string holder = (rdr[7] != DBNull.Value) ? (string)rdr[7] : "";
                     DateTime returnDate = new DateTime(2021, 1, 1);
-                    float price = (float)rdr[9];
+                    float price = Convert.ToSingle(rdr[9]);
                     int mileage = (int)rdr[10];
-                    
+
                     Vehicle vehicle = new Vehicle(vehicleID, vin, make, model, color, owner, holder, price, mileage, year, returnDate); //Create Vehicle data object
 
                     datalist.Add(vehicleID, vehicle);
