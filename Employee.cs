@@ -45,18 +45,18 @@ namespace VehicleManagementSystem
 
         public Employee(string userName, int employeeID, string password, string firstName, string lastName, string address, string city, string state, string zip, string phoneNumber, string eMail, string jobTitle)
         {
-            userName = this.userName;
-            employeeID = this.employeeID;
-            password = this.password;
-            firstName = this.firstName;
-            lastName = this.lastName;
-            address = this.address;
-            city = this.city;
-            state = this.state;
-            zip = this.zip;
-            phoneNumber = this.phoneNumber;
-            eMail = this.eMail;
-            jobTitle = this.jobTitle;
+            this.userName = userName;
+            this.employeeID = employeeID;
+            this.password = password;
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.address = address;
+            this.city = city;
+            this.state = state;
+            this.zip = zip;
+            this.phoneNumber = phoneNumber;
+            this.eMail = eMail;
+            this.jobTitle = jobTitle;
         }
 
         public string getUserName()
