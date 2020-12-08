@@ -11,7 +11,7 @@ namespace VehicleManagementSystem
     public class Admin
     {
         private SqlConnection conn;
-        private readonly String connectionString = "Data Source = (LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\John\\Development\\VehicleManagementSystem\\VehicleManagementSystemDatabase.mdf;Integrated Security = True; Connect Timeout = 30";
+        private readonly String connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Cheikh\\OneDrive\\Documents\\VehicleManagementSystem-main\\VehicleManagementSystemDatabase.mdf;Integrated Security=True;Connect Timeout=30";
 
         
         public Admin()
@@ -28,7 +28,6 @@ namespace VehicleManagementSystem
 
                 string firstName = employee.getFirstName();
                 string lastName = employee.getLastName();
-                int employeeID = employee.getEmployeeID();
                 string street = employee.getAddress();
                 string city = employee.getCity();
                 string state = employee.getState();
@@ -39,8 +38,8 @@ namespace VehicleManagementSystem
                 string userName = employee.getUserName();
                 string jobTitle = employee.getJobTitle();
 
-                string insertString = $"INSERT INTO Employee (employeeID,firstName,lastName,street,city,state,zip,phoneNumber,email,password,jobTitle,userName)" +
-                                      $"VALUES ('{employeeID}','{firstName}','{lastName}','{street}','{city}','{state}','{zip}','{phoneNum}','{emailAdd}','{password}','{jobTitle}','{userName}')";
+                string insertString = $"INSERT INTO Employee (firstName,lastName,street,city,state,zip,phoneNumber,email,password,jobTitle,userName)" +
+                                      $"VALUES ('{firstName}','{lastName}','{street}','{city}','{state}','{zip}','{phoneNum}','{emailAdd}','{password}','{jobTitle}','{userName}')";
 
                 SqlCommand cmd = new SqlCommand(insertString, conn);
                 cmd.ExecuteNonQuery();
@@ -182,7 +181,6 @@ namespace VehicleManagementSystem
             try
             { 
                 conn.Open();
-                int vehichleId = 0;
                 string vin = vehicle.getVin();
                 string make = vehicle.getMake();
                 string model = vehicle.getModel();
@@ -194,7 +192,7 @@ namespace VehicleManagementSystem
                 int mileage = vehicle.getMileage();
                
 
-                string insertString = $"INSERT INTO Vehicle (,vin,make,model,year,color,owner,holder,price,mileage)" +
+                string insertString = $"INSERT INTO Vehicle (vin,make,model,year,color,owner,holder,price,mileage)" +
                                       $"VALUES ('{vin}','{make}','{model}',{year},'{color}','{owner}','{holder}',{price}, {mileage})";
 
                 SqlCommand cmd = new SqlCommand(insertString, conn);
@@ -293,14 +291,12 @@ namespace VehicleManagementSystem
 
             try
             {
-                
-
                 conn.Open(); //Open the SQL connection
 
                 SqlCommand getVehicleInfo = new SqlCommand("SELECT * FROM Vehicle", this.conn);
 
                 rdr = getVehicleInfo.ExecuteReader();
-
+                
                 while (rdr.Read())
                 {
                     int vehicleID = (int)rdr[0];
