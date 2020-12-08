@@ -40,17 +40,17 @@ namespace VehicleManagementSystem
 
         public Vehicle(int vehicleID, string vin, string make, string model, string color, string owner, string holder, float price, int mileage, int year, DateTime returnDate)
         {
-            vehicleID = this.vehicleID;
-            vin = this.vin;
-            make = this.make;
-            model = this.model;
-            color = this.color;
-            owner = this.owner;
-            holder = this.owner;
-            price = this.price;
-            mileage = this.mileage;
-            year = this.year;
-            returnDate = this.returnDate;
+            this.vehicleID = vehicleID;
+            this.vin = vin;
+            this.make = make;
+            this.model = model;
+            this.color = color;
+            this.owner = owner;
+            this.holder = holder;
+            this.price = price;
+            this.mileage = mileage;
+            this.year = year;
+            this.returnDate = returnDate;
         }
 
 
@@ -157,33 +157,6 @@ namespace VehicleManagementSystem
                 {
                     MessageBox.Show("Error, failed to connect to database");
                 }
-        }
-        public void sellVehicle()
-        {
-            Database db = new Database();
-
-            using (SqlConnection connection = new SqlConnection(db.GetConnectionString()))
-            {
-
-                connection.Open();
-
-                String query_str = ($"UPDATE Vehicle SET owner='{this.owner}', holder='{this.owner}' WHERE vin='{this.vin}'");
-
-                SqlCommand query = new SqlCommand(query_str, connection);
-
-                if (query.ExecuteNonQuery() == 0)
-                {
-                    MessageBox.Show("Error, no changes to database were made");
-                }
-                try
-                {
-                   
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Error, failed to connect to database");
-                }
-            }
         }
     }
 }
