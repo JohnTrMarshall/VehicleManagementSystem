@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+
             this.addVehicle_Button = new System.Windows.Forms.Button();
             this.vehicleFunction_Label = new System.Windows.Forms.Label();
             this.deleteVehicle_Button = new System.Windows.Forms.Button();

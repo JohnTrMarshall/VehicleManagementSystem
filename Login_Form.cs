@@ -66,7 +66,7 @@ namespace VehicleManagementSystem
                 // this is where the new authorized form will be enabled 
 
                 // create employee object
-               employee.name =  dt.Rows[0]["firstName"].ToString();
+               employee.firstName =  dt.Rows[0]["firstName"].ToString();
                employee.employeeID = (int)dt.Rows[0]["employeeID"];
                employee.userName = username;
 

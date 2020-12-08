@@ -11,7 +11,7 @@ namespace VehicleManagementSystem
     public class Admin
     {
         private SqlConnection conn;
-        private readonly String connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Cheikh\\OneDrive\\Documents\\VehicleManagementSystem-main\\VehicleManagementSystemDatabase.mdf;Integrated Security=True;Connect Timeout=30";
+        private readonly String connectionString = "Data Source = (LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\John\\Development\\VehicleManagementSystem\\VehicleManagementSystemDatabase.mdf;Integrated Security = True; Connect Timeout = 30";
 
         
         public Admin()

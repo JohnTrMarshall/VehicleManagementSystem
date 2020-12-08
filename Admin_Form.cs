@@ -30,6 +30,8 @@ namespace VehicleManagementSystem
             {
                 employeeIDListBox.Items.Add($"{pair.Value.getEmployeeID()}  {pair.Value.getFirstName()}  {pair.Value.getLastName()}");
                 modifyEmployeeListBox.Items.Add($"{pair.Value.getEmployeeID()} {pair.Value.getFirstName()} {pair.Value.getLastName()}");
+
+                
             }
 
             vehicles = admin.getVehicleData(); //Get a list of all vehicles

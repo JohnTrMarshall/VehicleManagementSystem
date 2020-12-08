@@ -158,5 +158,32 @@ namespace VehicleManagementSystem
                     MessageBox.Show("Error, failed to connect to database");
                 }
         }
+        public void sellVehicle()
+        {
+            Database db = new Database();
+
+            using (SqlConnection connection = new SqlConnection(db.GetConnectionString()))
+            {
+
+                connection.Open();
+
+                String query_str = ($"UPDATE Vehicle SET owner='{this.owner}', holder='{this.owner}' WHERE vin='{this.vin}'");
+
+                SqlCommand query = new SqlCommand(query_str, connection);
+
+                if (query.ExecuteNonQuery() == 0)
+                {
+                    MessageBox.Show("Error, no changes to database were made");
+                }
+                try
+                {
+                   
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Error, failed to connect to database");
+                }
+            }
+        }
     }
 }
