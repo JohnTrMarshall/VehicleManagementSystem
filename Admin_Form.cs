@@ -457,7 +457,7 @@ namespace VehicleManagementSystem
             Config config = new Config();
             string path = addVehicleFile.Text;
 
-            config.readVehicleFile(path);
+           // config.readVehicleFile(path);
 
             modifyVehicleListBox.Items.Clear();
             vehicleListBox.Items.Clear();

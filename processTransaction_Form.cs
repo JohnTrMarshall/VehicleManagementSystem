@@ -421,24 +421,24 @@ namespace VehicleManagementSystem
 
         private void selectCustomer_button_Click(object sender, EventArgs e)
         {
-           if (!validateForm())
-            {
-                fillCustomer();
-            }
+            fillCustomer();
         }
 
         private void fillCustomer()
         {
-            firstName_textbox.Text = customerList.CurrentRow.Cells[0].Value.ToString();
-            lastName_textbox.Text = customerList.CurrentRow.Cells[1].Value.ToString();
-            street_Textbox.Text = customerList.CurrentRow.Cells[2].Value.ToString();
-            city_Textbox.Text = customerList.CurrentRow.Cells[3].Value.ToString();
-            state_Textbox.Text = customerList.CurrentRow.Cells[4].Value.ToString();
-            zip_Textbox.Text = customerList.CurrentRow.Cells[5].Value.ToString();
-            zip_Textbox.Text = zip_Textbox.Text.Substring(0, zip_Textbox.Text.IndexOf(" "));
-            phoneNumber_Textbox.Text = customerList.CurrentRow.Cells[6].Value.ToString();
-            phoneNumber_Textbox.Text = phoneNumber_Textbox.Text.Substring(0, phoneNumber_Textbox.Text.IndexOf(" "));
-            email_Textbox.Text = customerList.CurrentRow.Cells[7].Value.ToString();
+            if(customerList.CurrentRow != null)
+            {
+                firstName_textbox.Text = customerList.CurrentRow.Cells[0].Value.ToString();
+                lastName_textbox.Text = customerList.CurrentRow.Cells[1].Value.ToString();
+                street_Textbox.Text = customerList.CurrentRow.Cells[2].Value.ToString();
+                city_Textbox.Text = customerList.CurrentRow.Cells[3].Value.ToString();
+                state_Textbox.Text = customerList.CurrentRow.Cells[4].Value.ToString();
+                zip_Textbox.Text = customerList.CurrentRow.Cells[5].Value.ToString();
+                zip_Textbox.Text = zip_Textbox.Text.Substring(0, zip_Textbox.Text.IndexOf(" "));
+                phoneNumber_Textbox.Text = customerList.CurrentRow.Cells[6].Value.ToString();
+                phoneNumber_Textbox.Text = phoneNumber_Textbox.Text.Substring(0, phoneNumber_Textbox.Text.IndexOf(" "));
+                email_Textbox.Text = customerList.CurrentRow.Cells[7].Value.ToString();
+            }
 
         }
         private void sellVehicle(Customer customer)
