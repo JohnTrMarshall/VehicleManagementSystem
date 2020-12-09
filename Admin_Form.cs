@@ -70,7 +70,8 @@ namespace VehicleManagementSystem
             admin = new Admin();
             Employee employee;
 
-             int employeeId = modifyEmployeeListBox.SelectedIndex + 1;
+            string employeeItem = modifyEmployeeListBox.SelectedItem.ToString();
+            int employeeId = Convert.ToInt32(employeeItem.Substring(0, employeeItem.IndexOf(' ')));
            
 
             string firstName = modifyFirstName.Text;
@@ -457,7 +458,7 @@ namespace VehicleManagementSystem
             Config config = new Config();
             string path = addVehicleFile.Text;
 
-           // config.readVehicleFile(path);
+            config.readVehicleFile(path);
 
             modifyVehicleListBox.Items.Clear();
             vehicleListBox.Items.Clear();

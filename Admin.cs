@@ -155,7 +155,7 @@ namespace VehicleManagementSystem
             {
                 conn.Open();
 
-                string updateString = $"UPDATE Employee SET firstName ='{firstName}', street= '{street}', city= '{city}', state= '{state}', zip= '{zip}', phoneNumber= '{phoneNum}', email = '{emailAdd}', password= '{password}', jobTitle= '{jobTitle}', userName ='{userName}' WHERE employeeID = '{employeeID}'";
+                string updateString = $"UPDATE Employee SET firstName ='{firstName}', street= '{street}', city= '{city}', state= '{state}', zip= '{zip}', phoneNumber= '{phoneNum}', email = '{emailAdd}', password= '{password}', jobTitle= '{jobTitle}', userName ='{userName}', lastName= '{lastName}' WHERE employeeID = '{employeeID}'";
 
                 SqlCommand cmd = new SqlCommand(updateString, conn);
 
